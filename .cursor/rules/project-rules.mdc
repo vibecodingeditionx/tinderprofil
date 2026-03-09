@@ -1,0 +1,1475 @@
+---
+alwaysApply: true
+---
+
+# 🚀 Telegram WebApp Full-Stack Development System Prompt
+
+> **Bu döküman, Cursor AI ile Telegram WebApp projeleri oluşturmak için kapsamlı bir şablondur.**
+> Kullanıcı bir proje fikri söylediğinde, AI 10 kritik soru soracak ve cevaplara göre 100+ todo ile uçtan uca geliştirme yapacaktır.
+
+---
+
+## 📋 BAŞLANGIÇ PROTOKOLÜ
+
+Kullanıcı bir Telegram WebApp projesi fikri söylediğinde, **ZORUNLU olarak aşağıdaki 10 soruyu sor:**
+
+### 🔟 ZORUNLU BAŞLANGIÇ SORULARI
+
+```markdown
+Merhaba! 🎉 Telegram WebApp projenizi başlatmadan önce aşağıdaki 10 soruya cevap verin:
+
+**1. 🎯 PROJE AMACI**
+Projenin temel amacı nedir? (Örn: kripto analizi, e-ticaret, sosyal medya, eğitim, oyun, finans vb.)
+
+**2. 👥 HEDEF KİTLE**
+Hedef kullanıcı kitlesi kim? (Örn: yatırımcılar, öğrenciler, işletmeler, genel kullanıcılar)
+
+**3. 💰 MONETİZASYON MODELİ**
+Gelir modeli ne olacak?
+- [ ] Token/Kredi sistemi (Telegram Stars ile ödeme)
+- [ ] Abonelik sistemi (Aylık/Yıllık)
+- [ ] Tek seferlik satın alma
+- [ ] Freemium (Temel ücretsiz, premium özellikler ücretli)
+- [ ] Reklam destekli
+- [ ] Tamamen ücretsiz
+
+**4. 🔐 KİMLİK DOĞRULAMA**
+Kullanıcı authentication gereksinimi:
+- [ ] Sadece Telegram ID ile (önerilen)
+- [ ] Email/şifre ek authentication
+- [ ] OAuth (Google, Apple vb.)
+
+**5. 📊 ANA ÖZELLİKLER**
+Uygulamanın sahip olması gereken ana özellikler neler? (En az 5 özellik listeleyin)
+
+**6. 🎨 UI/UX TERCİHLERİ**
+Tasarım tercihleri:
+- Renk paleti tercihi: (Koyu tema önerilen - Telegram uyumu)
+- Ana renk: (Örn: #CCFF00 lime yeşil)
+- Font stili: (Modern, minimalist, klasik vb.)
+
+**7. 🌍 DİL DESTEĞİ**
+Desteklenmesini istediğiniz diller: (Default: English + Turkish)
+- [ ] English (zorunlu)
+- [ ] Turkish
+- [ ] Russian
+- [ ] Spanish
+- [ ] French
+- [ ] German
+- [ ] Diğer: ___
+
+**8. 📱 TELEGRAM ÖZELLİKLERİ**
+Hangi Telegram WebApp özelliklerini kullanacaksınız?
+- [ ] MainButton (Alt ana buton)
+- [ ] BackButton (Geri butonu)
+- [ ] HapticFeedback (Titreşim geri bildirimi)
+- [ ] CloudStorage (Bulut depolama)
+- [ ] BiometricManager (Biyometrik doğrulama)
+- [ ] Popup/Alert/Confirm dialogs
+- [ ] QR Scanner
+- [ ] Invoice (Ödeme faturası)
+
+**9. 🗄️ VERİTABANI GEREKSİNİMLERİ**
+Hangi veri türlerini saklayacaksınız?
+- [ ] Kullanıcı profilleri
+- [ ] İşlem geçmişi
+- [ ] Medya dosyaları (resim, video)
+- [ ] Gerçek zamanlı veriler
+- [ ] Chat/mesajlaşma
+- [ ] Analytics/istatistik
+
+**10. 🔌 ENTEGRASYONLAR**
+Üçüncü parti entegrasyonlar gerekli mi?
+- [ ] AI API (OpenAI, Gemini, Claude vb.)
+- [ ] Payment API (Stripe, PayPal vb.)
+- [ ] Analytics (Mixpanel, Amplitude vb.)
+- [ ] Push notifications
+- [ ] External API bağlantıları: ___
+```
+
+---
+
+## 🏗️ TEKNOLOJİ STACK (SABİT)
+
+### Frontend (React + TypeScript + Vite)
+```json
+{
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.22.3",
+    "@twa-dev/sdk": "^6.9.1",
+    "@supabase/supabase-js": "^2.58.0",
+    "@tanstack/react-query": "^5.90.2",
+    "framer-motion": "^11.1.6",
+    "i18next": "^25.5.2",
+    "react-i18next": "^16.0.0",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "i18next-http-backend": "^3.0.2",
+    "react-hook-form": "^7.63.0",
+    "@hookform/resolvers": "^5.2.2",
+    "zod": "^4.1.11",
+    "lucide-react": "^0.344.0",
+    "react-hot-toast": "^2.4.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3",
+    "vite": "^5.4.2",
+    "@vitejs/plugin-react": "^4.3.1",
+    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.35",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^9.9.1",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0"
+  }
+}
+```
+
+### Backend (Python + FastAPI)
+```txt
+# requirements.txt
+fastapi==0.104.1
+uvicorn[standard]==0.23.2
+python-multipart==0.0.6
+pydantic>=2.5.0
+pydantic-settings==2.1.0
+python-dotenv==1.0.0
+aiohttp>=3.9.0
+httpx~=0.25.2
+python-telegram-bot[job-queue]==20.7
+supabase==2.4.4
+postgrest>=0.14.0,<0.17.0
+gotrue==1.3.0
+google-generativeai==0.3.2
+```
+
+### Database (Supabase - PostgreSQL)
+- PostgreSQL 15+
+- Row Level Security (RLS)
+- Realtime subscriptions
+- Edge Functions (Deno)
+- Storage buckets
+
+---
+
+## 📁 PROJE YAPISI (ŞABLON)
+
+```
+project-root/
+├── frontend/
+│   ├── public/
+│   │   ├── locales/
+│   │   │   ├── en/
+│   │   │   │   ├── common.json
+│   │   │   │   ├── auth.json
+│   │   │   │   ├── navigation.json
+│   │   │   │   ├── errors.json
+│   │   │   │   └── [feature].json
+│   │   │   └── tr/
+│   │   │       └── [same structure]
+│   │   ├── manifest.json
+│   │   └── [app-icon].svg
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── common/
+│   │   │   │   ├── ErrorBoundary.tsx
+│   │   │   │   ├── LoadingSpinner.tsx
+│   │   │   │   └── PageTransition.tsx
+│   │   │   ├── layout/
+│   │   │   │   ├── BottomNavigation.tsx
+│   │   │   │   └── Header.tsx
+│   │   │   └── [feature]/
+│   │   │       └── [FeatureComponent].tsx
+│   │   ├── contexts/
+│   │   │   ├── TelegramContext.tsx
+│   │   │   ├── AuthContext.tsx
+│   │   │   └── [Feature]Context.tsx
+│   │   ├── hooks/
+│   │   │   ├── use-i18n.ts
+│   │   │   ├── use-local-storage.ts
+│   │   │   └── use-[feature].ts
+│   │   ├── lib/
+│   │   │   ├── i18n.ts
+│   │   │   ├── supabase.ts
+│   │   │   └── utils.ts
+│   │   ├── pages/
+│   │   │   ├── HomePage.tsx
+│   │   │   ├── OnboardingPage.tsx
+│   │   │   ├── SettingsPage.tsx
+│   │   │   └── [Feature]Page.tsx
+│   │   ├── services/
+│   │   │   └── telegramPaymentService.ts
+│   │   ├── types/
+│   │   │   ├── index.ts
+│   │   │   ├── supabase.ts
+│   │   │   └── [feature].ts
+│   │   ├── utils/
+│   │   │   └── helpers.ts
+│   │   ├── App.tsx
+│   │   ├── main.tsx
+│   │   └── index.css
+│   ├── supabase/
+│   │   ├── migrations/
+│   │   │   ├── 001_create_users_and_profiles.sql
+│   │   │   ├── 002_create_tokens_system.sql
+│   │   │   ├── 003_create_[feature]_tables.sql
+│   │   │   └── 004_create_database_functions.sql
+│   │   ├── functions/
+│   │   │   └── [edge-function]/
+│   │   │       └── index.ts
+│   │   └── seed/
+│   │       └── initial_data.sql
+│   ├── index.html
+│   ├── vite.config.ts
+│   ├── tailwind.config.js
+│   ├── tsconfig.json
+│   └── package.json
+│
+├── backend/
+│   ├── api/
+│   │   ├── endpoints/
+│   │   │   ├── __init__.py
+│   │   │   ├── auth.py
+│   │   │   ├── payment.py
+│   │   │   └── [feature].py
+│   │   ├── __init__.py
+│   │   └── router.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   └── schemas.py
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── telegram_service.py
+│   │   ├── payment_service.py
+│   │   ├── supabase_service.py
+│   │   └── [feature]_service.py
+│   ├── main.py
+│   ├── requirements.txt
+│   ├── Procfile
+│   ├── runtime.txt
+│   ├── railway.json
+│   └── nixpacks.toml
+│
+├── .env.example
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 🔧 BACKEND CORE (Config, Main, Router, Schemas)
+
+### core/config.py – Pydantic Settings
+- `pydantic_settings.BaseSettings` kullan; `Config`: `case_sensitive = True`, `env_file = ".env"`, `extra = "ignore"`.
+- **Zorunlu env validasyonu:** Uygulama başlarken `BOT_TOKEN`, `SUPABASE_URL`, `SUPABASE_ANON_KEY` yoksa `raise ValueError("...")`.
+- Telegram token için env'de hem `TELEGRAM_BOT_TOKEN` hem `BOT_TOKEN` desteklenebilir; kodda tek isimle (örn. `BOT_TOKEN`) kullan.
+- Paket listesi (token/energy) config'te **fallback** olarak tutulabilir; asıl kaynak Supabase tablosu olmalı.
+
+### main.py – Logging, CORS, Endpoint'ler
+- **Logging:** `logging.basicConfig(..., stream=sys.stdout, force=True)` (Railway/cloud için stdout).
+- **CORS:** `FRONTEND_URL` env'den; `allow_credentials=True`; production'da `allow_origins` mümkünse belirli origin listesi.
+- **GET /webhook** → Health check → `{"status": "ok", "message": "Webhook endpoint is active"}`.
+- **POST /webhook** → Telegram webhook handler.
+- **Global exception handler:** `@app.exception_handler(Exception)` → 500, `JSONResponse({"detail": "Sunucu hatası oluştu"})`.
+- **Zorunlu:** `GET /` (API bilgisi), `GET /health` (timestamp, environment).
+
+### Router ve Endpoint Organizasyonu
+- Ana router: `APIRouter()`, `app.include_router(api_router, prefix="/api")`.
+- Alt router'lar `prefix` ve `tags` ile eklenmeli (örn. `prefix="/payment", tags=["payment"]`) — OpenAPI gruplanır.
+
+### Schemas (Pydantic)
+- **CreateInvoiceRequest:** `package_id: str`, `user_id: int` (Telegram user id).
+- **CreateInvoiceResponse:** `success`, `invoice_url`, `transaction_id`, `message` (opsiyonel).
+- **OnboardingRequest:** `telegram_id: int`, `onboarding_data: dict`.
+- **OnboardingResponse:** `success`, `message`.
+- **PreCheckoutQuery** içinde alan adı `from` ise: `Field(..., alias="from")` kullan.
+
+---
+
+## 🔐 TELEGRAM WEBAPP ENTEGRASYONU
+
+### 1. TelegramContext.tsx (Zorunlu)
+```typescript
+import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import WebApp from '@twa-dev/sdk';
+
+interface TelegramContextType {
+  webApp: typeof WebApp | null;
+  user: WebAppUser | null;
+  isReady: boolean;
+  // Native Telegram functions
+  showBackButton: (show: boolean) => void;
+  hideBackButton: () => void;
+  showMainButton: (params: { text: string; onClick: () => void }) => void;
+  hideMainButton: () => void;
+  hapticFeedback: (type: 'light' | 'medium' | 'heavy' | 'rigid' | 'soft') => void;
+  showPopup: (params: PopupParams) => Promise<string>;
+  setHeaderColor: (color: HeaderColorKey) => void;
+  enableClosingConfirmation: () => void;
+  disableClosingConfirmation: () => void;
+  // Payment
+  openInvoice: (url: string, callback?: (status: string) => void) => void;
+}
+
+// Full implementation with error handling for each method
+export const TelegramProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [isReady, setIsReady] = useState(false);
+  
+  useEffect(() => {
+    if ((window as any).Telegram?.WebApp) {
+      WebApp.ready();
+      WebApp.expand();
+      setIsReady(true);
+    } else {
+      console.log('Development mode - Telegram WebApp not found');
+      setIsReady(true);
+    }
+  }, []);
+
+  // All methods with try-catch and fallbacks
+  const hapticFeedback = useCallback((type) => {
+    try {
+      if (WebApp?.HapticFeedback?.impactOccurred) {
+        WebApp.HapticFeedback.impactOccurred(type);
+      }
+    } catch (error) {
+      console.debug('Haptic feedback not supported:', error);
+    }
+  }, []);
+
+  // ... other implementations
+
+  return (
+    <TelegramContext.Provider value={{ /* ... */ }}>
+      {children}
+    </TelegramContext.Provider>
+  );
+};
+
+export const useTelegram = () => useContext(TelegramContext);
+```
+
+### 2. index.html (Zorunlu Meta Tags)
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  
+  <!-- PWA Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#YOUR_THEME_COLOR" />
+  
+  <!-- ZORUNLU: Telegram WebApp Script -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  
+  <title>Your App Name</title>
+  
+  <style>
+    :root {
+      --safe-area-inset-top: env(safe-area-inset-top);
+      --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      overscroll-behavior: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    input, textarea, select { font-size: 16px !important; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
+```
+
+### 3. Telegram InitData Doğrulama (Backend)
+**validate_telegram_webapp_data(init_data)** algoritması:
+1. `init_data`'yı `key=value&` formatında parse et, `urllib.parse.unquote` kullan.
+2. `hash`'i çıkar; yoksa `return False, None`.
+3. Kalan parametrelerden **data-check-string**: `'\n'.join(f"{k}={data_dict[k]}" for k in sorted(data_dict.keys()))`.
+4. **Secret key:** `HMAC-SHA256("WebAppData".encode(), bot_token.encode(), sha256).digest()`.
+5. **Hesaplanan hash:** `HMAC-SHA256(secret_key, data_check_string.encode(), sha256).hexdigest()`.
+6. Hesaplanan ile gelen `hash` karşılaştır (case-insensitive).
+7. **auth_date:** `time.time() - auth_date > 86400` (24 saat) ise reddet.
+8. `user` varsa JSON parse et.
+- **DEBUG modu:** `settings.DEBUG` True ise hash kontrolü atlanabilir (sadece development); sadece parse ve `user` JSON.
+
+---
+
+## ⚠️ KRİTİK GELİŞTİRME PRENSİPLERİ
+
+### 🚫 MOCK DATA KULLANMA - SADECE SUPABASE
+
+**Geliştirme sırasında ASLA mock/fake data kullanma.** Tüm veriler baştan itibaren Supabase'den gelmelidir.
+
+```typescript
+// ❌ YANLIŞ - Mock data kullanımı
+const mockCharacters = [
+  { id: '1', name: 'Test Character' }
+];
+
+// ✅ DOĞRU - Supabase'den veri çekme
+const { data: characters } = await supabase
+  .from('characters')
+  .select('*')
+  .eq('is_active', true);
+```
+
+**Neden?**
+- Mock data ile geliştirme yapıldığında, gerçek veritabanı entegrasyonunda beklenmedik hatalar çıkar
+- UUID formatı, foreign key ilişkileri, RLS politikaları gibi kritik konular gözden kaçar
+- Geliştirme ve production ortamları arasında tutarsızlık oluşur
+
+**Seed Data Kullanımı:**
+```sql
+-- initial_data.sql dosyası ile başlangıç verileri ekle
+INSERT INTO characters (id, name, age, personality) VALUES
+  ('11111111-1111-1111-1111-111111111111', 'Mia', 28, 'Flirty and playful'),
+  ('22222222-2222-2222-2222-222222222222', 'Sofia', 25, 'Mysterious and seductive');
+```
+
+---
+
+## 🔗 TELEGRAM DEEP LINK SİSTEMİ
+
+### Deep Link Parametre Limiti
+Telegram `/start` parametresi **maksimum 64 karakter** ile sınırlıdır. UUID'ler (36 karakter) kullanıldığında bu limit aşılır.
+
+```python
+# ❌ YANLIŞ - Çok uzun parametre (72+ karakter)
+deep_link = f"char_{character_id}_story_{story_id}"
+# Örnek: char_11111111-1111-1111-1111-111111111111_story_aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+
+# ✅ DOĞRU - Kısaltılmış parametre (max 64 karakter)
+short_char_id = character_id[:8]  # İlk 8 karakter
+short_story_id = story_id[:8]
+deep_link = f"c_{short_char_id}_s_{short_story_id}"
+# Örnek: c_11111111_s_aaaaaaaa (21 karakter)
+```
+
+**Backend'de Kısa ID'den Tam UUID Çözümleme:**
+```python
+async def get_character_by_short_id(short_id: str) -> Optional[dict]:
+    """Kısa ID'den (ilk 8 karakter) tam karakteri bul"""
+    result = self._client.table("characters").select("*").ilike("id", f"{short_id}%").execute()
+    return result.data[0] if result.data else None
+```
+
+### WebApp'ten Telegram Sohbetine Geçiş
+WebApp içinden Telegram sohbetine yönlendirme yapılırken:
+
+```typescript
+// ✅ DOĞRU - Deep link ile yönlendirme ve WebApp kapatma
+const handleStartChat = async () => {
+  const response = await apiFetch(`${BACKEND_URL}/api/chat/start`, {
+    method: 'POST',
+    body: JSON.stringify({ character_id, story_id, telegram_id })
+  });
+  
+  if (response.deep_link_url) {
+    // Önce Telegram deep link'i aç
+    window.open(response.deep_link_url, '_blank');
+    
+    // Sonra WebApp'i kapat
+    window.Telegram?.WebApp?.close();
+  }
+};
+```
+
+---
+
+## 💳 TELEGRAM STARS ÖDEME SİSTEMİ
+
+### Invoice Oluşturma (telegram_service.py)
+- **Telegram Stars** için `provider_token: ""` (boş string) gönderilmeli.
+- **prices:** API'ye **list** olarak verilmeli; `json.dumps` ile string yapılmamalı. Örnek: `prices = [{"label": "10 Token", "amount": 500}]` (amount = Stars, integer).
+
+```python
+async def create_invoice_link(
+    self,
+    title: str,
+    description: str,
+    payload: str,
+    currency: str = "XTR",  # Telegram Stars
+    prices: list
+) -> Optional[str]:
+    """
+    Telegram Stars invoice oluştur
+    - currency: "XTR"
+    - payload: Max 128 byte (sadece transaction_id UUID)
+    - prices: list olarak gönder, json.dumps YAPMA!
+    """
+    request_payload = {
+        "title": title,
+        "description": description,
+        "payload": payload,
+        "provider_token": "",  # Telegram Stars için boş
+        "currency": currency,
+        "prices": prices
+    }
+    result = await self._make_request("createInvoiceLink", request_payload)
+    return result if isinstance(result, str) else None
+```
+
+### Ödeme Akışı (Payload ve Pending Transactions)
+- **Payload (max 128 byte):** Sadece **transaction_id** (UUID) gönderilmeli; paket bilgisi payload'a sıkıştırılmamalı.
+- **Pending transactions:** Backend'de in-memory dict: `transaction_id → { user_id, package_id, tokens, stars, status, created_at }`. Webhook'ta `invoice_payload` ile bu dict'ten transaction bulunur.
+- Ödeme başarılı işlendikten sonra kullanıcıya **Telegram'dan** metin bildirimi gönderilmeli (`telegram_service.send_message` ile "Ödeme başarılı, X token eklendi" vb.).
+
+### Ödeme Webhook İşleme
+```python
+@app.post("/webhook")
+async def telegram_webhook(request: Request):
+    data = await request.json()
+    
+    # 1. Pre-checkout Query - 10 SANİYE İÇİNDE YANITLANMALI!
+    if "pre_checkout_query" in data:
+        query = data["pre_checkout_query"]
+        # Hemen yanıtla, validasyon sonra yapılabilir
+        await telegram_service.answer_pre_checkout_query(query["id"], ok=True)
+        return Response(status_code=200)
+    
+    # 2. Başarılı Ödeme
+    if "message" in data and "successful_payment" in data["message"]:
+        payment = data["message"]["successful_payment"]
+        
+        if payment.get("currency") == "XTR":  # Telegram Stars
+            # Transaction ID payload'dan al
+            transaction_id = payment.get("invoice_payload")
+            charge_id = payment.get("telegram_payment_charge_id")
+            
+            # Kullanıcıya token/abonelik ekle
+            await process_payment(transaction_id, charge_id)
+        
+        return Response(status_code=200)
+```
+
+### Frontend Invoice Açma
+```typescript
+const handlePurchase = async (packageId: string) => {
+  // 1. Backend'den invoice URL al
+  const response = await apiFetch(`${BACKEND_URL}/api/payment/create-invoice`, {
+    method: 'POST',
+    body: JSON.stringify({
+      package_id: packageId,
+      user_id: telegramUser.id
+    })
+  });
+  
+  if (!response.invoice_url) {
+    throw new Error('Invoice oluşturulamadı');
+  }
+  
+  // 2. Telegram native invoice dialog'unu aç
+  window.Telegram?.WebApp?.openInvoice(response.invoice_url, (status) => {
+    if (status === 'paid') {
+      // Ödeme başarılı - UI güncelle
+      refetchUser();
+      toast.success('Ödeme başarılı!');
+    } else if (status === 'cancelled') {
+      toast.info('Ödeme iptal edildi');
+    } else if (status === 'failed') {
+      toast.error('Ödeme başarısız');
+    }
+  });
+};
+```
+
+---
+
+## 🤖 GEMINI AI ENTEGRASYONU
+
+### Model Seçimi
+```python
+# ✅ DOĞRU - Güncel ve çalışan model
+model_name = "gemini-2.0-flash-lite"
+
+# ❌ YANLIŞ - Eski/kaldırılmış modeller
+# model_name = "gemini-pro"  # 404 hatası verir
+```
+
+### Güvenlik Ayarları (Adult Content için)
+```python
+safety_settings = [
+    {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
+    {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
+    {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
+    {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"}
+]
+```
+
+### Prompt Mühendisliği - Kısa ve Doğal Cevaplar
+```python
+system_prompt = f"""You are {character['name']}, a {character['age']}-year-old woman.
+
+RESPONSE RULES:
+1. Keep responses SHORT: 2-4 sentences maximum
+2. Write like a real person texting - casual, natural
+3. Use *asterisks* for physical actions: *leans closer* *smiles*
+4. Match the user's energy and language style
+5. Build tension gradually, don't rush
+6. Use emojis sparingly (1-2 per message max)
+
+MEDIA TAGS (use when appropriate):
+- [SEND_PHOTO] - When sending a selfie/photo makes sense
+- [SEND_VOICE] - For intimate/emotional moments
+- [SEND_VIDEO] - Only for premium users, special moments
+
+NEVER:
+- Write long paragraphs
+- Break character
+- Mention being an AI
+- Use formal language
+"""
+```
+
+### Metin Formatı Dönüşümü (Telegram HTML)
+```python
+import re
+
+def format_telegram_text(text: str) -> str:
+    """
+    Gemini'den gelen *action* formatını Telegram HTML'e çevir
+    *walks closer* -> <i>walks closer</i>
+    """
+    if not text:
+        return text
+    
+    # *...* bloklarını <i>...</i> ile değiştir
+    return re.sub(r"\*(.+?)\*", r"<i>\1</i>", text, flags=re.DOTALL)
+```
+
+---
+
+## 🖼️ MEDYA YÖNETİM SİSTEMİ
+
+### Telegram Medya Gönderimi
+```python
+async def send_photo(
+    self,
+    chat_id: int,
+    photo_url: str,
+    caption: Optional[str] = None,
+    has_spoiler: bool = False,  # Blur efekti
+    reply_markup: Optional[Dict] = None  # Inline butonlar
+) -> Dict[str, Any]:
+    data = {
+        "chat_id": chat_id,
+        "photo": photo_url,
+        "has_spoiler": has_spoiler,  # ✅ Premium olmayanlara blur
+        "parse_mode": "HTML"
+    }
+    if caption:
+        data["caption"] = caption
+    if reply_markup:
+        data["reply_markup"] = reply_markup
+    
+    return await self._make_request("sendPhoto", data)
+```
+
+---
+
+## 🔄 MESAJ YENİLEME SİSTEMİ
+
+### Inline Refresh Butonu
+```python
+async def send_ai_response(chat_id: int, text: str, session_id: str):
+    """Her AI mesajına yenile butonu ekle"""
+    
+    keyboard = {
+        "inline_keyboard": [[
+            {"text": "🔄", "callback_data": f"refresh:{session_id}"}
+        ]]
+    }
+    
+    await telegram_service.send_message(
+        chat_id=chat_id,
+        text=format_telegram_text(text),
+        reply_markup=keyboard
+    )
+```
+
+### Callback Query İşleme
+```python
+async def handle_callback_query(callback: dict):
+    callback_id = callback.get("id")
+    data = callback.get("data", "")
+    message = callback.get("message", {})
+    chat_id = message.get("chat", {}).get("id")
+    message_id = message.get("message_id")
+    
+    if data.startswith("refresh:"):
+        # Kullanıcıya bildirim
+        await telegram_service.answer_callback_query(
+            callback_id, 
+            text="🔄 Yenileniyor..."
+        )
+        
+        # Son user mesajını bul ve yeni cevap üret
+        session = await get_active_session(chat_id)
+        last_user_message = await get_last_user_message(session["id"])
+        
+        new_response = await gemini_service.generate_response(
+            message=last_user_message,
+            character=session["character"],
+            story=session["story"]
+        )
+        
+        # Mevcut mesajı güncelle
+        await telegram_service.edit_message_text(
+            chat_id=chat_id,
+            message_id=message_id,
+            text=format_telegram_text(new_response),
+            reply_markup={"inline_keyboard": [[{"text": "🔄", "callback_data": data}]]}
+        )
+```
+
+---
+
+## 🗄️ SUPABASE VERİTABANI ŞEMASI
+
+### 1. Users & Profiles (Zorunlu)
+```sql
+-- Enable UUID
+create extension if not exists "uuid-ossp";
+
+-- Users table (synced with Telegram)
+create table public.users (
+  id uuid primary key default uuid_generate_v4(),
+  telegram_id bigint unique not null,
+  telegram_username text,
+  telegram_first_name text,
+  telegram_last_name text,
+  telegram_language_code text default 'en',
+  is_premium boolean default false,
+  is_adult_verified boolean default false,
+  subscription_type text,  -- 'monthly', 'quarterly', 'yearly'
+  subscription_expires_at timestamptz,
+  created_at timestamptz default now() not null,
+  updated_at timestamptz default now() not null,
+  last_seen_at timestamptz default now() not null
+);
+
+-- User profiles (extended data)
+create table public.user_profiles (
+  id uuid primary key default uuid_generate_v4(),
+  user_id uuid references public.users(id) on delete cascade not null unique,
+  display_name text,
+  preferred_language text default 'en',
+  notification_enabled boolean default true,
+  theme_preference text default 'dark',
+  onboarding_completed boolean default false,
+  onboarding_data jsonb default '{}'::jsonb,
+  created_at timestamptz default now() not null,
+  updated_at timestamptz default now() not null
+);
+
+-- Enable RLS
+alter table public.users enable row level security;
+alter table public.user_profiles enable row level security;
+
+-- Indexes
+create index idx_users_telegram_id on public.users(telegram_id);
+
+-- Auto-create profile trigger
+create or replace function public.create_user_profile_for_new_user()
+returns trigger language plpgsql security invoker set search_path = '' as $$
+begin
+  insert into public.user_profiles (user_id, preferred_language)
+  values (new.id, coalesce(new.telegram_language_code, 'en'));
+  return new;
+end;
+$$;
+
+create trigger create_profile_on_user_insert
+  after insert on public.users
+  for each row execute function public.create_user_profile_for_new_user();
+```
+
+### 2. Energy/Token System
+```sql
+-- Energy balances
+create table public.energy_balances (
+  id uuid primary key default uuid_generate_v4(),
+  user_id uuid references public.users(id) on delete cascade not null unique,
+  energy integer default 100 not null check (energy >= 0),
+  is_unlimited boolean default false not null,
+  created_at timestamptz default now() not null,
+  updated_at timestamptz default now() not null
+);
+
+-- Subscription packages
+create table public.subscription_packages (
+  id text primary key,
+  name text not null,
+  name_tr text not null,
+  description text not null,
+  description_tr text not null,
+  duration_days integer not null,
+  stars integer not null,
+  is_popular boolean default false,
+  sort_order integer default 0,
+  is_active boolean default true,
+  created_at timestamptz default now()
+);
+
+-- Auto-create energy balance trigger
+create or replace function public.create_energy_balance_for_new_user()
+returns trigger language plpgsql security invoker set search_path = '' as $$
+begin
+  insert into public.energy_balances (user_id, energy, is_unlimited)
+  values (new.id, 100, false);  -- 100 başlangıç enerjisi
+  return new;
+end;
+$$;
+
+create trigger create_energy_on_user_insert
+  after insert on public.users
+  for each row execute function public.create_energy_balance_for_new_user();
+```
+
+### 3. Chat System
+```sql
+-- Chat sessions
+create table public.chat_sessions (
+  id uuid primary key default uuid_generate_v4(),
+  user_id uuid references public.users(id) on delete cascade not null,
+  character_id uuid references public.characters(id) on delete cascade not null,
+  story_id uuid references public.stories(id) on delete cascade not null,
+  telegram_chat_id bigint not null,
+  is_active boolean default true,
+  last_message_at timestamptz default now(),
+  total_messages integer default 0,
+  created_at timestamptz default now() not null
+);
+
+-- Chat messages
+create table public.chat_messages (
+  id uuid primary key default uuid_generate_v4(),
+  session_id uuid references public.chat_sessions(id) on delete cascade not null,
+  role text not null check (role in ('user', 'assistant')),
+  content text not null,
+  media_url text,
+  media_type text check (media_type in ('photo', 'video', 'voice')),
+  is_blurred boolean default false,
+  energy_cost integer default 0,
+  created_at timestamptz default now() not null
+);
+
+-- Indexes
+create index idx_chat_sessions_telegram on public.chat_sessions(telegram_chat_id);
+create index idx_chat_sessions_active on public.chat_sessions(is_active) where is_active = true;
+create index idx_chat_messages_session on public.chat_messages(session_id);
+```
+
+### 4. Supabase Service (Backend) ve RPC
+- Backend'de Supabase client **SERVICE_ROLE_KEY** ile oluşturulmalı (admin/RPC işlemleri için).
+- Token/balance/onboarding işlemleri mümkünse Supabase **RPC** ile yapılmalı; fonksiyon isimleri migration ile uyumlu (örn. `get_user_balance`, `purchase_tokens`, `use_token`, `complete_onboarding`).
+- **authenticate_telegram_user:** `users` tablosunda `telegram_id` ile select; varsa update (last_seen_at, username, name vb.), yoksa insert. Dönüş: `{ success, user_id, telegram_id, session }`. Session en azından `user_id`, `telegram_id`, `authenticated_at` içerebilir.
+- **Token paketleri:** `token_packages` veya `subscription_packages` tablosundan `is_active=True`, `sort_order` ile sıralı çekilmeli.
+- **Onboarding:** RPC `complete_onboarding(p_user_telegram_id, p_onboarding_data)` ile tamamlanmalı.
+
+### 5. Auth Endpoint'leri (Backend)
+- **POST /api/auth/telegram:** Body `{ init_data: string }`. Doğrula → Supabase'de get/create user → response: `{ success, user_id, telegram_id, message, session }`.
+- **POST /api/auth/complete-onboarding:** Body `{ telegram_id: int, onboarding_data: dict }`. Supabase RPC `complete_onboarding` çağrılır; response: `{ success, message }`.
+
+---
+
+## 🌍 i18n ÇOK DİL DESTEĞİ
+
+### lib/i18n.ts
+```typescript
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
+import LanguageDetector from 'i18next-browser-languagedetector'
+import Backend from 'i18next-http-backend'
+
+export const SUPPORTED_LANGUAGES = {
+  en: { name: 'English', nativeName: 'English', rtl: false },
+  tr: { name: 'Turkish', nativeName: 'Türkçe', rtl: false },
+} as const
+
+// Telegram language detector - Telegram'dan dil kodunu al
+const telegramLanguageDetector = {
+  name: 'telegramWebApp',
+  lookup() {
+    try {
+      const langCode = (window as any).Telegram?.WebApp?.initDataUnsafe?.user?.language_code
+      if (langCode) {
+        const supportedLangCode = langCode.split('-')[0]
+        if (SUPPORTED_LANGUAGES[supportedLangCode as keyof typeof SUPPORTED_LANGUAGES]) {
+          return supportedLangCode
+        }
+      }
+    } catch (error) {
+      console.error('Telegram language detection failed:', error)
+    }
+    return undefined
+  }
+}
+
+const languageDetector = new LanguageDetector()
+languageDetector.addDetector(telegramLanguageDetector)
+
+i18n
+  .use(Backend)
+  .use(languageDetector)
+  .use(initReactI18next)
+  .init({
+    detection: {
+      order: ['telegramWebApp', 'localStorage', 'navigator'],
+      caches: ['localStorage'],
+    },
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
+    },
+    fallbackLng: 'en',
+    ns: ['common', 'auth', 'navigation', 'errors'],
+    defaultNS: 'common',
+    interpolation: { escapeValue: false },
+    react: { useSuspense: false }
+  })
+
+export default i18n
+```
+
+---
+
+## 📱 FRONTEND ZORUNLU YAPISI (TELEGRAM WEBAPP)
+
+Her yeni Telegram WebApp projesinde frontend aşağıdaki yapı ve kurallara uymalıdır. Canlı projelerdeki (backend ile tam haberleşen) deneyim referans alınmıştır.
+
+### 1. Provider Hiyerarşisi (main.tsx)
+
+Sıra önemlidir; dıştan içe: Telegram → Auth → Token/Feature → Router → App.
+
+```tsx
+// main.tsx - Zorunlu sıra
+<TelegramProvider>
+  <AuthProvider>
+    <TokenProvider>  {/* veya [Feature]Provider */}
+      <Router>
+        <App />
+      </Router>
+    </TokenProvider>
+  </AuthProvider>
+</TelegramProvider>
+```
+
+- **TelegramProvider** en dışta: WebApp.ready(), expand(), initDataUnsafe?.user.
+- **AuthProvider** Telegram hazır olunca initData ile backend `/api/auth/telegram` çağrısı yapar; mock kullanılmaz.
+- **TokenProvider** (veya enerji/abonelik) bakiye ve paketleri Supabase/backend'den alır.
+- i18n `main.tsx` içinde import edilmeli: `import './lib/i18n'`.
+
+### 2. Ayarlar Sayfası (SettingsPage) – Zorunlu Bölümler
+
+Ayarlar sayfası **mutlaka** aşağıdaki öğeleri içermelidir. Eksik bırakılmamalıdır.
+
+| Bölüm | Açıklama | Zorunlu |
+|-------|----------|--------|
+| **Telegram profili** | Kullanıcı avatarı (photo_url veya placeholder), ad-soyad, @username. `WebApp.initDataUnsafe?.user` veya AuthContext'ten. | ✅ |
+| **Token/Plan bakiye** | Mevcut bakiye veya abonelik durumu; "Planlar" / "Token Satın Al" sayfasına yönlendirme. | ✅ |
+| **Dil değiştirme** | i18n ile dil seçimi; modal veya sayfa. Seçilen dil localStorage + backend tercihine (varsa) kaydedilmeli. | ✅ |
+| **Gizlilik politikası** | Link veya in-app sayfa; GDPR/Telegram uyumu için gerekli. | ✅ |
+| **Kullanım koşulları** | Link veya in-app sayfa. | ✅ |
+| **Bildirimler** | Aç/kapa (varsa backend/Supabase ile senkron). | Önerilen |
+| **Tema / Görünüm** | Koyu/açık (Telegram tema rengi ile uyumlu). | Önerilen |
+| **Yardım & Destek** | Bot veya destek linki. | Önerilen |
+| **Çıkış (Logout)** | Oturumu kapat; WebApp kapanmasın, sadece auth state temizlensin. | ✅ |
+| **Uygulama sürümü** | Sabit veya package.json'dan; footer'da göster. | Önerilen |
+| **Debug bilgisi** | Sadece `VITE_DEBUG_MODE === 'true'` iken; InitData, platform, viewport. | Opsiyonel |
+
+- **Telegram profili** örneği: Avatar (initDataUnsafe.user veya varsa photo_url), `first_name`, `last_name`, `username` (@ ile). Geliştirme modunda kullanıcı yoksa placeholder göster.
+- **Dil değiştirme:** `useI18n` veya i18n.changeLanguage(); dil listesi `lib/i18n.ts` içindeki `SUPPORTED_LANGUAGES` ile tutarlı olmalı.
+- **Gizlilik / Kullanım koşulları:** `window.open(url)` veya dahili route; URL'ler env veya sabit.
+
+### 3. Onboarding Akışı
+
+- **İlk giriş kontrolü:** `user_profiles.onboarding_completed` veya benzeri backend/Supabase alanına göre yönlendirme. Tamamlanmamışsa `/onboarding` göster.
+- **Adımlar:** Multi-step (örn. 3–6 adım); Framer Motion veya benzeri ile geçiş animasyonu kullanılabilir.
+- **Veri toplama:** Sadece gerekli alanlar (isim, tercih, vb.); form state (useState veya form kütüphanesi) ile yönetilmeli.
+- **Tamamlama:** Backend'e `POST /api/auth/complete-onboarding` ile `telegram_id` ve `onboarding_data` gönderilmeli. `telegram_id` için `WebApp.initDataUnsafe?.user?.id` kullanılır; initData yoksa onboarding tamamlanamaz veya hata gösterilir.
+- **i18n:** Onboarding metinleri sabit dilde bırakılmamalı; `common.json` veya `onboarding.json` namespace'inden çekilmeli.
+- **Başarı sonrası:** `navigate('/')` veya ana sayfaya yönlendirme; gerekirse kullanıcı/onboarding state yeniden fetch edilmeli.
+
+### 4. Sayfa ve Routing Kuralları
+
+- **Lazy loading:** Sayfa bileşenleri `React.lazy()` ile yüklenmeli; Suspense fallback (LoadingSpinner veya skeleton) kullanılmalı.
+- **Hata sınırı:** `ErrorBoundary` App seviyesinde ve isteğe bağlı olarak alt bölümlerde (örn. BottomNavigation) kullanılmalı.
+- **Alt navigasyonu gizleme:** Ödeme, onboarding, tam ekran sohbet gibi sayfalarda BottomNavigation gizlenmeli; `hideNavigation` path listesi tek yerde tanımlanmalı (örn. `['/onboarding', '/payment', '/tokens', '/chat']`).
+- **Safe area:** Alt navigasyon ve sabit header'larda `paddingBottom: 'env(safe-area-inset-bottom)'` ve benzeri kullanılmalı.
+
+### 5. Backend / API İletişimi
+
+- **Base URL:** Tüm API çağrıları `import.meta.env.VITE_BACKEND_URL` kullanmalı; fallback `http://localhost:8000` (sadece development).
+- **Auth:** Telegram girişi için tek kaynak `init_data` (string). Backend'e `POST /api/auth/telegram` body: `{ init_data: string }`. Cevap: `success`, `user_id`, `telegram_id`, `message`, `session`.
+- **Ödeme:** Fatura URL'i backend'den alınır: `POST /api/payment/create-invoice` body: `{ package_id, user_id }` (user_id = Telegram user id). Dönen `invoice_url` ile `WebApp.openInvoice(url, callback)` çağrılır. Callback'te `paid` / `cancelled` / `failed` işlenmeli; `paid` sonrası bakiye/refetch yapılmalı.
+- **Paket listesi:** Backend veya Supabase'den; mock liste kullanılmaz. Loading ve empty state gösterilmeli.
+
+### 6. Locales ve i18n
+
+- **Dosya yapısı:** `public/locales/{{lng}}/{{ns}}.json`. Örnek: `public/locales/en/common.json`, `public/locales/tr/common.json`.
+- **Namespace'ler:** En azından `common`, `navigation`, `errors`; projeye göre `auth`, `settings`, `onboarding`, `tokens` eklenmeli.
+- **Telegram dil algılama:** İlk dil seçimi `initDataUnsafe?.user?.language_code` ile yapılmalı; desteklenmeyen kodlar için fallback (örn. `en`).
+- **Dil değiştirme:** Kullanıcı ayarlardan dil seçince `i18n.changeLanguage(lng)` ve isteğe bağlı backend/Supabase tercih güncellemesi.
+
+### 7. index.html Zorunlulukları
+
+- **Telegram WebApp script:** `<script src="https://telegram.org/js/telegram-web-app.js"></script>` head'de, uygulama script'lerinden önce.
+- **Viewport:** `width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover`.
+- **PWA / tema:** `theme-color`, `apple-mobile-web-app-capable`, `apple-mobile-web-app-status-bar-style` (örn. black-translucent).
+- **Safe area:** CSS'te `--safe-area-inset-top/bottom` env değişkenleri kullanılmalı.
+- **Form elemanları:** `input, textarea, select { font-size: 16px !important; }` (mobil zoom önleme).
+- **Body:** `overscroll-behavior: none`, `-webkit-overflow-scrolling: touch`.
+
+### 8. TelegramContext Kullanımı
+
+- **openInvoice:** Ödeme için mutlaka `WebApp.openInvoice(url, callback)` kullanılmalı; callback'te status'e göre UI güncellenmeli.
+- **BackButton / MainButton:** Sayfa geçişlerinde BackButton göster/gizle; form veya CTA için MainButton kullan; sayfa değişince hideMainButton çağrılmalı.
+- **hapticFeedback:** Buton tıklamalarında `impactOccurred('light')` veya `'medium'` kullanılmalı.
+- **showPopup:** Onay veya bilgi için `showPopup` tercih edilmeli; fallback olarak `window.confirm` / `alert` kullanılabilir.
+- **Geliştirme modu:** Telegram yokken (tarayıcıda) `isReady` yine true yapılmalı; openInvoice yoksa `window.open(url)` fallback kullanılabilir.
+
+### 9. Özet – Frontend Kontrol Listesi
+
+| Madde | Açıklama |
+|-------|----------|
+| Provider sırası | TelegramProvider → AuthProvider → TokenProvider → Router → App |
+| Ayarlar | Telegram profili, bakiye/planlar linki, dil, gizlilik, kullanım koşulları, çıkış |
+| Onboarding | Multi-step, backend complete-onboarding, i18n, telegram_id initData'dan |
+| Routing | Lazy pages, ErrorBoundary, hideNavigation listesi, safe area |
+| API | VITE_BACKEND_URL, auth init_data, create-invoice + openInvoice |
+| i18n | locales/{{lng}}/{{ns}}.json, Telegram dil detector, dil değiştirme |
+| index.html | telegram-web-app.js, viewport, theme-color, safe-area, input 16px |
+| TelegramContext | openInvoice, BackButton, MainButton, hapticFeedback, showPopup fallback |
+
+---
+
+## 🎨 UI/UX TASARIM REHBERİ
+
+### Tema ve Kullanıcı Tercihi
+- **6. sorudaki cevap uygulanmalı:** Kullanıcı "ana renk: #HEX" ve "font stili: …" verdiğinde bu değerler `tailwind.config.js` theme.extend içinde kullanılmalı; varsayılan sadece aşağıdaki örnek değil, projeye özel tema üretilmeli.
+- **Koyu tema:** Telegram uyumu için koyu arka plan önerilir; renkler kullanıcı tercihine göre uyarlanır.
+
+### Tailwind Config (Tema) – Örnek
+```javascript
+// tailwind.config.js
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        'app-black': '#121212',
+        'app-dark': '#1E1E1E',
+        'app-gray': '#2A2A2A',
+        'app-primary': {
+          DEFAULT: '#CCFF00',
+          muted: 'rgba(204, 255, 0, 0.15)',
+          glow: 'rgba(204, 255, 0, 0.35)'
+        },
+        'app-white': '#FFFFFF',
+        'app-card': '#1A1A1A',
+      },
+      fontFamily: {
+        sans: ['Inter var', 'sans-serif'],
+      },
+      animation: {
+        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'glow': 'glow 1.5s ease-in-out infinite alternate',
+        'bounce-subtle': 'bounceSubtle 0.5s ease-out',
+        'slide-up': 'slideUp 0.3s ease-out',
+      },
+      keyframes: {
+        glow: {
+          '0%': { opacity: '0.6', boxShadow: '0 0 12px currentColor' },
+          '100%': { opacity: '1', boxShadow: '0 0 24px currentColor' },
+        },
+        bounceSubtle: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-4px)' },
+        },
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+    },
+  },
+  plugins: [],
+}
+```
+
+### Komponent Görsel Kuralları (Tutarlılık)
+- **Button:** Minimum dokunma yüksekliği 44px; border-radius tutarlı (örn. 12px); primary/secondary/danger varyantları; focus: ring-2 ring-primary/50.
+- **Card:** padding 16px veya 24px; border-radius 12px–16px; bg app-card; hafif gölge veya border.
+- **Input:** min-height 48px; font-size 16px (zoom önleme); border ve focus ring (ring-2) kullanılmalı.
+- **Spacing:** 4, 8, 12, 16, 24, 32 px tutarlı kullanılsın (Tailwind spacing scale).
+
+### Motion (Framer Motion)
+- **Onboarding:** Sayfa/adım geçişlerinde AnimatePresence + hafif slide veya fade kullanılabilir.
+- **Liste:** Öğelerde stagger veya fade-in (opsiyonel) kullanılabilir.
+- Buton tıklamada hapticFeedback ile birlikte hafif scale (örn. 0.98) opsiyoneldir.
+
+### Erişilebilirlik
+- Etkileşimli öğelerde `focus-visible:ring-2` benzeri görünür focus ring kullanılmalı.
+- Metin/arka plan kontrastı okunabilir olmalı (koyu arka planda açık metin).
+
+---
+
+## 🔧 WEBHOOK OTOMATİK AYARLAMA
+
+### Backend Lifespan ile Otomatik Webhook
+- Webhook **sadece** `ENVIRONMENT == "production"` ve `WEBHOOK_URL` dolu ise ayarlanmalı.
+- Kurulum **asenkron** yapılmalı: `asyncio.create_task(setup_webhook_async())` ile ana uygulama bloklanmamalı.
+- `set_webhook` çağrısında **allowed_updates** mutlaka verilmeli: `["message", "callback_query", "pre_checkout_query"]`. Invoice (Stars) kullanılıyorsa `pre_checkout_query` zorunludur.
+
+```python
+from contextlib import asynccontextmanager
+import asyncio
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Uygulama başlatıldığında webhook'u otomatik ayarla"""
+    logger.info("🚀 Starting backend...")
+    if settings.ENVIRONMENT == "production" and settings.WEBHOOK_URL:
+        asyncio.create_task(setup_webhook_async())
+    yield
+    logger.info("👋 Shutting down...")
+
+async def setup_webhook_async():
+    webhook_url = f"{settings.WEBHOOK_URL}/webhook"
+    success = await telegram_service.set_webhook(
+        url=webhook_url,
+        allowed_updates=["message", "callback_query", "pre_checkout_query"]
+    )
+    if success:
+        logger.info("✅ Webhook set")
+    # ...
+
+app = FastAPI(lifespan=lifespan)
+```
+
+### Webhook Handler ve Loglama
+- Webhook'ta **request body** tam loglanmamalı (gizlilik). Sadece `list(data.keys())` veya tip bilgisi loglanabilir.
+- Webhook handler **her durumda** (hata dahil) **200** dönmeli; aksi halde Telegram tekrar dener. Hata detayı log'a yazılmalı.
+- Pre-checkout ve successful_payment ayrı bloklarda; exception'da bile `return Response(status_code=200)`.
+
+---
+
+## 📱 REQUEST BODY CACHING (FastAPI Middleware)
+
+FastAPI'de request body bir kez okunabilir. Webhook'larda body'yi loglamak ve sonra işlemek için:
+
+```python
+@app.middleware("http")
+async def cache_request_body(request: Request, call_next):
+    """Request body'yi cache'le - birden fazla okuma için"""
+    
+    if request.method == "POST":
+        # Body'yi oku ve cache'le
+        body = await request.body()
+        
+        # Yeni receive fonksiyonu oluştur
+        async def receive():
+            return {"type": "http.request", "body": body}
+        
+        # Request'in receive'ini değiştir
+        request._receive = receive
+        
+        # Loglama (webhook hariç - privacy)
+        if "webhook" not in request.url.path:
+            try:
+                logger.debug(f"📦 Body: {json.loads(body)}")
+            except:
+                pass
+    
+    return await call_next(request)
+```
+
+---
+
+## 🚀 100 TODO LİSTESİ ŞABLONU
+
+> Her uygulama farklı olabilir; **[Feature]** / **[Özellik]** projeye göre değiştirilir.  
+> **Olmazsa olmaz** maddeler kurallar bütünüyle uyumludur (Telegram, backend, frontend).
+
+---
+
+### FAZA 1: PROJE KURULUMU (1–10)
+```
+1. [ ] Vite + React + TypeScript projesi oluştur
+2. [ ] Tailwind CSS yapılandırması
+3. [ ] ESLint (ve isteğe Prettier) ayarları
+4. [ ] Supabase projesi oluştur ve frontend bağlantısı (.env)
+5. [ ] Environment variables: frontend (.env VITE_*) ve backend (.env BOT_TOKEN, SUPABASE_*, vb.)
+6. [ ] Git repository ve .gitignore
+7. [ ] Backend klasör yapısı (Python/FastAPI: api/, core/, services/)
+8. [ ] requirements.txt ve backend bağımlılıkları
+9. [ ] core/config.py – Pydantic Settings, zorunlu env validasyonu (BOT_TOKEN, SUPABASE_URL, SUPABASE_ANON_KEY)
+10. [ ] README.md ve .env.example
+```
+
+### FAZA 2: TELEGRAM WEBAPP ENTEGRASYONU (11–20) — Olmazsa olmaz
+```
+11. [ ] TelegramContext.tsx – WebApp.ready(), expand(), user, isReady
+12. [ ] @twa-dev/sdk ve index.html’de telegram-web-app.js script
+13. [ ] index.html: viewport, theme-color, safe-area, input 16px, PWA meta
+14. [ ] BackButton show/hide (sayfa bazlı)
+15. [ ] MainButton show/hide/text/onClick (form/CTA)
+16. [ ] HapticFeedback (buton tıklamalarında)
+17. [ ] showPopup / Alert–Confirm wrapper (fallback: confirm/alert)
+18. [ ] setHeaderColor, enable/disableClosingConfirmation
+19. [ ] openInvoice(url, callback) – ödeme için zorunlu
+20. [ ] Geliştirme modu: Telegram yokken isReady=true, openInvoice fallback (window.open)
+```
+
+### FAZA 3: KİMLİK DOĞRULAMA (21–30) — Olmazsa olmaz
+```
+21. [ ] AuthContext.tsx – signIn, signOut, user, isLoading, isAuthenticated
+22. [ ] Backend POST /api/auth/telegram (body: init_data)
+23. [ ] Backend: validate_telegram_webapp_data (hash, auth_date 24h, DEBUG istisnası)
+24. [ ] Backend: Supabase users get/create (telegram_id), last_seen_at güncelleme
+25. [ ] AuthProvider: Telegram hazır olunca initData ile signIn
+26. [ ] main.tsx provider sırası: TelegramProvider → AuthProvider → … → Router → App
+27. [ ] Protected route veya onboarding yönlendirmesi (onboarding_completed)
+28. [ ] Session / refresh (isteğe bağlı)
+29. [ ] Logout – auth state temizleme (WebApp kapatılmaz)
+30. [ ] Backend POST /api/auth/complete-onboarding (telegram_id, onboarding_data)
+```
+
+### FAZA 4: VERİTABANI (31–45)
+```
+31. [ ] Users tablosu migration (telegram_id, username, first_name, last_name, …)
+32. [ ] User profiles tablosu (user_id, preferred_language, onboarding_completed, onboarding_data)
+33. [ ] Energy / token / balance tablosu (projeye göre)
+34. [ ] Subscription veya token_packages tablosu (ödeme varsa)
+35. [ ] [Feature] ile ilgili ana tablolar migration
+36. [ ] RLS politikaları (users, profiles)
+37. [ ] RLS politikaları (balance, packages, [feature])
+38. [ ] get_or_create_user veya authenticate_telegram_user RPC/ servis
+39. [ ] complete_onboarding RPC veya endpoint ile profilde güncelleme
+40. [ ] Auto-create profile (trigger)
+41. [ ] Auto-create balance (trigger) – enerji/token kullanılıyorsa
+42. [ ] Seed: subscription_packages veya token_packages (ödeme varsa)
+43. [ ] Seed: [feature] başlangıç verileri (varsa)
+44. [ ] Supabase client backend’de SERVICE_ROLE_KEY ile
+45. [ ] Token/balance işlemleri RPC ile (kurala uygun)
+```
+
+### FAZA 5: ÖDEME SİSTEMİ (46–55) — Telegram Stars kullanılacaksa olmazsa olmaz
+```
+46. [ ] telegram_service.py – createInvoiceLink (XTR, provider_token "", prices list)
+47. [ ] payment_service.py – payload sadece transaction_id, pending_transactions in-memory
+48. [ ] POST /api/payment/create-invoice (package_id, user_id)
+49. [ ] GET /api/payment/packages (Supabase’den is_active, sort_order)
+50. [ ] Webhook: pre_checkout_query 10 sn içinde answer_pre_checkout_query(ok=True)
+51. [ ] Webhook: successful_payment – payload’dan transaction_id, process_payment, kullanıcıya mesaj
+52. [ ] Frontend: telegramPaymentService veya benzeri (createInvoice + openInvoice)
+53. [ ] SubscriptionPage / TokenPurchasePage – paket listesi Supabase/backend’den (mock yok)
+54. [ ] Ödeme sonrası bakiye/abonelik güncelleme ve refetch
+55. [ ] Ödeme bildirimi (toast) – paid / cancelled / failed
+```
+
+### FAZA 6: i18n (56–65)
+```
+56. [ ] lib/i18n.ts – Backend, LanguageDetector, Telegram dil detector
+57. [ ] SUPPORTED_LANGUAGES ve fallbackLng (en)
+58. [ ] public/locales/{{lng}}/{{ns}}.json yapısı
+59. [ ] common.json (en, tr, …)
+60. [ ] navigation.json, errors.json (ve projeye göre auth, settings, [feature])
+61. [ ] useI18n hook veya t() kullanımı
+62. [ ] Dil değiştirme komponenti (Settings’te LanguageModal vb.)
+63. [ ] Onboarding ve ayarlar metinleri i18n’den
+64. [ ] Backend hata/başarı mesajları dil desteği (isteğe bağlı)
+65. [ ] html lang ve theme ile uyum
+```
+
+### FAZA 7: UI KOMPONENTLERİ (66–82)
+```
+66. [ ] LoadingSpinner / FullScreenLoader
+67. [ ] ErrorBoundary (App ve gerekirse alt bölümler)
+68. [ ] PageTransition (isteğe bağlı)
+69. [ ] BottomNavigation – safe-area-inset-bottom
+70. [ ] Header (title, back, rightAction)
+71. [ ] Card / whale-card vb. ortak kart
+72. [ ] Button varyantları (primary, secondary, danger)
+73. [ ] Input varyantları
+74. [ ] Modal/Dialog
+75. [ ] Toast (react-hot-toast vb.)
+76. [ ] Bakiye / token widget (üst bar veya ayarlar)
+77. [ ] Skeleton loading
+78. [ ] Empty state komponenti
+79. [ ] Error state komponenti
+80. [ ] LanguageModal veya dil seçici (ayarlar için zorunlu)
+81. [ ] Telegram profil kartı – avatar, ad, @username (ayarlar üstü, zorunlu)
+82. [ ] DebugPanel sadece VITE_DEBUG_MODE (isteğe bağlı)
+```
+
+### FAZA 8: SAYFALAR (83–93)
+```
+83. [ ] App.tsx – Routes, lazy loading, Suspense fallback, ErrorBoundary
+84. [ ] hideNavigation path listesi (onboarding, payment, tokens, tam ekran sayfalar)
+85. [ ] main.tsx – Provider hierarchy + import './lib/i18n'
+86. [ ] HomePage
+87. [ ] OnboardingPage – multi-step, complete-onboarding API, telegram_id initData’dan, i18n
+88. [ ] SettingsPage – Telegram profili, bakiye/planlar linki, dil, gizlilik, kullanım koşulları, çıkış, versiyon
+89. [ ] SubscriptionPage / TokenPurchasePage (ödeme varsa)
+90. [ ] [Feature] list / detail / action sayfaları (projeye göre)
+91. [ ] Gizlilik politikası ve Kullanım koşulları (sayfa veya dış link)
+92. [ ] 404 veya yönlendirme
+93. [ ] Safe area kullanımı (alt nav, sabit header)
+```
+
+### FAZA 9: ÖZELLİK VE BACKEND (94–98)
+```
+94. [ ] [Feature] Context (frontend)
+95. [ ] [Feature] Service veya API çağrıları (frontend)
+96. [ ] [Feature] API endpoints (backend router, prefix, tags)
+97. [ ] [Feature] Backend service ve Supabase/veritabanı entegrasyonu
+98. [ ] [Feature] RLS ve gerekli RPC’ler
+```
+
+### FAZA 10: WEBHOOK, BOT VE DEPLOYMENT (99–100) — Olmazsa olmaz
+```
+99. [ ] main.py: GET /webhook (health), POST /webhook (handler), her durumda 200; lifespan ile production’da set_webhook; allowed_updates: message, callback_query, pre_checkout_query; request body cache middleware
+100. [ ] BotFather bot, WebApp URL, Payments (Stars); production env; deployment (runtime.txt, Procfile, railway/nixpacks); deep link 64 karakter kuralı
+```
+
+---
+
+**Kullanım:** Proje ücretsizse 46–55 arası sadeleştirilir; chat/analiz yoksa 35–37 ve 94–98 projeye göre uyarlanır. 11–30 ve 88, 99–100 Telegram WebApp için **olmazsa olmaz** çekirdek todolardır.
+
+### Olmazsa Olmaz – Ek Kurallar (TODO karşılıkları)
+
+Aşağıdaki maddeler **Olmazsa Olmaz – Ek Kurallar** bölümündeki kuralların kontrol listesidir; yeni proje veya özellik eklerken işaretleyin:
+
+**Backend**
+- [ ] Tüm kullanıcıya özel API endpoint'lerinde initData veya session doğrulaması (yoksa 401)
+- [ ] POST /webhook kullanılıyorsa FastAPI request body cache middleware
+- [ ] Production'da CORS `allow_origins` belirli liste (FRONTEND_URL vb.), `["*"]` yok
+- [ ] Backend kökünde `.env.example` (BOT_TOKEN, SUPABASE_*, WEBHOOK_URL, FRONTEND_URL placeholder)
+- [ ] init_data ham string, token, invoice payload içeriği loglanmıyor
+- [ ] RPC kullanılıyorsa `SUPABASE_SERVICE_ROLE_KEY` config validasyonu (isteğe bağlı)
+
+**Frontend**
+- [ ] `onboarding_completed === false` ise `/onboarding` yönlendirmesi (App veya route guard)
+- [ ] Çeviri dosyaları sadece `public/locales/{{lng}}/{{ns}}.json` (locx vb. kullanma)
+- [ ] Frontend kökünde `.env.example` (VITE_BACKEND_URL, VITE_SUPABASE_*, VITE_DEBUG_MODE placeholder)
+- [ ] API çağrılarında hata yakalama ve kullanıcıya toast/uyarı (sessiz fail yok)
+- [ ] Auth/initData yokken korumalı sayfalara erişim engeli veya onboarding yönlendirmesi
+
+**Genel**
+- [ ] Mock/fake veri kullanılmıyor; veri kaynağı Supabase veya backend API
+- [ ] Deep link parametresi max 64 karakter (UUID kısaltılmış form)
+
+---
+
+## 🔧 DEPLOYMENT CHECKLIST
+
+### Deployment Dosyaları (Backend)
+- **runtime.txt:** Python sürümü (örn. `python-3.10.15`) — Heroku vb. için.
+- **Procfile:** `web: uvicorn main:app --host 0.0.0.0 --port $PORT`
+- **railway.json:** `buildCommand: "pip install -r requirements.txt"`, `startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"`, `restartPolicyType: "ON_FAILURE"`, isteğe `healthcheckPath: "/health"`.
+- **nixpacks.toml:** `[phases.setup] nixPkgs = ["python310", "pip"]`, install phase'de `pip install -r requirements.txt`, start: `uvicorn main:app --host 0.0.0.0 --port $PORT`.
+
+### Environment Variables (Frontend)
+```env
+VITE_SUPABASE_URL=https://xxx.supabase.co
+VITE_SUPABASE_ANON_KEY=xxx
+VITE_BACKEND_URL=https://your-backend.railway.app
+VITE_DEBUG_MODE=false
+```
+
+### Environment Variables (Backend)
+```env
+ENVIRONMENT=production
+DEBUG=false
+TELEGRAM_BOT_TOKEN=xxx
+BOT_TOKEN=xxx
+WEBHOOK_URL=https://your-backend.railway.app
+SUPABASE_URL=https://xxx.supabase.co
+SUPABASE_ANON_KEY=xxx
+SUPABASE_SERVICE_ROLE_KEY=xxx
+FRONTEND_URL=https://your-frontend.vercel.app
+BOT_USERNAME=your_bot_username
+GEMINI_API_KEY=xxx
+```
+
+### Telegram Bot Setup
+1. BotFather'dan bot oluştur
+2. Webhook otomatik ayarlanır (backend lifespan)
+3. WebApp URL'i ekle (Menu Button / Bot Settings)
+4. Payments aktifle (Stars için)
+
+---
+
+## 📌 KRİTİK KURALLAR ÖZETİ
+
+| Konu | Kural |
+|------|-------|
+| **Mock Data** | ASLA kullanma, sadece Supabase |
+| **Deep Link** | Max 64 karakter, UUID kısalt |
+| **Invoice Payload** | Max 128 byte; sadece transaction_id (UUID); detaylar _pending_transactions'da |
+| **Pre-checkout** | 10 saniye içinde yanıtla |
+| **Telegram Stars** | Currency code: `XTR`; provider_token boş string; prices list (json.dumps yok) |
+| **Gemini Model** | `gemini-2.0-flash-lite` kullan veya projeye uygun model |
+| **Request Body** | Middleware ile cache'le |
+| **Webhook** | Sadece production'da kur; allowed_updates: message, callback_query, pre_checkout_query; her durumda 200 dön; body loglama |
+| **Config** | Başlangıçta BOT_TOKEN, SUPABASE_URL, SUPABASE_ANON_KEY zorunlu validasyon |
+| **Supabase** | Admin işlemlerde SERVICE_ROLE_KEY; token/onboarding RPC kullan |
+| **InitData** | Hash + auth_date 24 saat; DEBUG'da doğrulama atlanabilir |
+| **Health** | GET /webhook (health), GET /health (timestamp, environment) |
+| **Deployment** | runtime.txt, Procfile, railway.json, nixpacks.toml tutarlı olsun |
+| **Metin Format** | `*action*` → `<i>action</i>` |
+| **Medya Blur** | `has_spoiler: true` (free users) |
+| **Frontend Settings** | Ayarlar: Telegram profili, bakiye/planlar, dil, gizlilik, kullanım koşulları, çıkış zorunlu |
+| **Frontend Onboarding** | Multi-step; backend complete-onboarding; telegram_id initData'dan; i18n kullan |
+| **Frontend Provider** | Sıra: TelegramProvider → AuthProvider → TokenProvider → Router → App |
+| **Backend API koruması** | Token/ödeme/onboarding dışındaki kullanıcıya özel endpoint'lerde initData veya session doğrula |
+| **CORS (production)** | allow_origins belirli liste (FRONTEND_URL vb.); `["*"]` kullanma |
+| **.env.example** | Frontend ve backend kökünde zorunlu; hassas değerler placeholder (xxx, your-url) |
+| **Locales path** | Sadece `public/locales/{{lng}}/{{ns}}.json`; alternatif path (locx vb.) kullanma |
+| **Hassas veri loglama** | init_data tam metni, token, ödeme payload içeriği loglanmaz; sadece tip/keys |
+| **Frontend route koruması** | onboarding_completed yoksa /onboarding'a yönlendir; App veya route guard ile uygula |
+| **API hata yönetimi** | Frontend'de tüm API çağrılarında try/catch veya react-query; kullanıcıya toast/uyarı göster |
+| **Request body middleware** | POST /webhook kullanılıyorsa FastAPI'de body cache middleware zorunlu (body çift okunabilir) |
+
+---
+
+## 🔒 Olmazsa Olmaz – Ek Kurallar (Frontend & Backend)
+
+Aşağıdaki maddeler kurallar bütününde dağınık veya örtük kalmış **zorunlu** uygulama kurallarıdır. Yeni özellik veya proje eklerken mutlaka uygulanmalıdır.
+
+### Backend
+- **API koruması:** Kullanıcıya özel tüm endpoint'lerde (token bakiye, analiz, profil vb.) istek başında Telegram initData veya backend tarafında session/token doğrulaması yapılmalı; doğrulama yoksa 401.
+- **Request body cache:** `POST /webhook` kullanılan her projede FastAPI için request body'yi cache'leyen HTTP middleware tanımlanmalı; body birden fazla yerde okunacaksa bu olmadan hata oluşur.
+- **CORS:** Production ortamında `allow_origins=["*"]` kullanılmamalı; `FRONTEND_URL` ve gerekirse diğer origin'ler liste olarak verilmeli.
+- **.env.example:** Backend kökünde `.env.example` bulunmalı; `BOT_TOKEN`, `SUPABASE_*`, `WEBHOOK_URL`, `FRONTEND_URL` vb. placeholder değerlerle listelenmeli, hassas gerçek değer yazılmamalı.
+- **Loglama:** init_data ham string, token, invoice payload içeriği, kullanıcı özel veri loglanmamalı; webhook için sadece `list(data.keys())` veya tip bilgisi yeterli.
+- **Config validasyonu:** RPC veya admin işlem kullanılıyorsa `SUPABASE_SERVICE_ROLE_KEY` da başlangıçta kontrol edilebilir; eksikse uyarı veya hata.
+
+### Frontend
+- **Route koruması:** Onboarding tamamlanmamış kullanıcı (`onboarding_completed === false`) ana/özellik sayfalarına erişememeli; App.tsx veya bir route guard/wrapper ile `/onboarding` yönlendirmesi zorunlu.
+- **Locales path:** Çeviri dosyaları yalnızca `public/locales/{{lng}}/{{ns}}.json` yolunda olmalı; `locx` veya başka alternatif kök kullanılmamalı (i18n backend loadPath ile uyum için).
+- **.env.example:** Frontend kökünde `.env.example` bulunmalı; `VITE_BACKEND_URL`, `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_DEBUG_MODE` placeholder ile listelenmeli.
+- **API hata yönetimi:** Backend çağrılarında (fetch veya react-query) hata yakalanmalı; kullanıcıya anlamlı mesaj (toast/alert) gösterilmeli, sessiz fail yapılmamalı.
+- **Auth olmadan sayfa:** Giriş/initData yokken korumalı sayfalara erişim engellenmeli veya onboarding’e yönlendirilmeli; sadece public sayfalar (örn. landing) açık kalabilir.
+
+### Genel
+- **Mock data:** Hem frontend hem backend’de test veya geliştirme için mock/fake veri kullanılmaz; veri kaynağı her zaman Supabase veya backend API’dir.
+- **Deep link:** Telegram `/start` parametresi 64 karakter ile sınırlıdır; UUID veya uzun ID kullanılacaksa kısaltılmış form (örn. ilk 8 karakter) kullanılmalı.
+
+---
+
+**Bu şablon ile herhangi bir Telegram WebApp projesi uçtan uca geliştirilebilir.**
