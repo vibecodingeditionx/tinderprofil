@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TinderSnap Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#fa3d63",
+                        "background-light": "#f8f5f6",
+                        "background-dark": "#000000",
+                        "card-dark": "#161618",
+                        "destructive": "#FF3B30",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .apple-toggle:checked + .toggle-bg {
+            background-color: #34C759;
+        }
+        .apple-toggle:checked + .toggle-bg .toggle-dot {
+            transform: translateX(1.25rem);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto pb-24">
+<!-- Header Section -->
+<div class="flex flex-col gap-2 px-4 pt-12 pb-6">
+<h1 class="text-slate-900 dark:text-white text-4xl font-bold tracking-tight">Settings</h1>
+</div>
+<!-- Section: Profile Card -->
+<div class="px-4 mb-6">
+<div class="bg-white dark:bg-card-dark rounded-xl p-4 flex items-center gap-4 shadow-sm">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-16 w-16 border-2 border-primary/20" data-alt="Professional male portrait for profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACyao57rmTLSgo2JJzjQZmzOHQNhHXp_gXp_AcVbZNUA78XUxrNhvWzQWiuR6_X7_952PLvOn_QLei0ia-PXqJ7zj8YTHMl49d4gIxPT7C3nQFQetNvYWa7vfws4QjhOfgXcQy5ClW8ZBhnVbN_i-tmn89wM_iOidDT_T-GNebdSC33JmmH8EznPG9sppwgFPjLL6B6bMvNOTgqoLrLHRjRSIhbjTPUHtCo2p1ahwYLfmicZlExC1eUXvOEKdCL2pBRr5i0WR2tj0");'>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight">John Doe</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">@johndoe</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+<p class="text-primary text-xs font-semibold">Telegram Profile</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</div>
+<!-- Section: Token Balance -->
+<div class="px-4 mb-8">
+<div class="bg-white dark:bg-card-dark rounded-xl p-4 flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<p class="text-slate-900 dark:text-white text-base font-bold">15 tokens remaining</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Current Balance</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1">
+                    Buy Tokens
+                    <span class="material-symbols-outlined text-[18px]">add_circle</span>
+</button>
+</div>
+</div>
+<!-- Section Group: App Settings -->
+<div class="px-4 mb-8">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider px-2 mb-2">Preferences</p>
+<div class="bg-white dark:bg-card-dark rounded-xl overflow-hidden divide-y divide-slate-100 dark:divide-white/5">
+<!-- Language Row -->
+<div class="flex items-center justify-between p-4 cursor-pointer active:bg-slate-50 dark:active:bg-white/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">language</span>
+<span class="text-slate-900 dark:text-white font-medium">Language</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-slate-500 dark:text-slate-400 text-sm">English</span>
+<span class="material-symbols-outlined text-slate-400 text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Preferred Style Row -->
+<div class="flex items-center justify-between p-4 cursor-pointer active:bg-slate-50 dark:active:bg-white/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">palette</span>
+<span class="text-slate-900 dark:text-white font-medium">Preferred Style</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-slate-500 dark:text-slate-400 text-sm">Cinematic</span>
+<span class="material-symbols-outlined text-slate-400 text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Notifications Toggle -->
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">notifications</span>
+<span class="text-slate-900 dark:text-white font-medium">Notifications</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only apple-toggle" type="checkbox"/>
+<div class="toggle-bg w-11 h-6 bg-slate-200 dark:bg-white/10 rounded-full transition-colors duration-200 ease-in-out">
+<div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full shadow transition-transform duration-200 ease-in-out"></div>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Section Group: Legal -->
+<div class="px-4 mb-8">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider px-2 mb-2">Legal</p>
+<div class="bg-white dark:bg-card-dark rounded-xl overflow-hidden divide-y divide-slate-100 dark:divide-white/5">
+<div class="flex items-center justify-between p-4 cursor-pointer active:bg-slate-50 dark:active:bg-white/5">
+<span class="text-slate-900 dark:text-white font-medium">Privacy Policy</span>
+<span class="material-symbols-outlined text-slate-400 text-[20px]">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-4 cursor-pointer active:bg-slate-50 dark:active:bg-white/5">
+<span class="text-slate-900 dark:text-white font-medium">Terms of Service</span>
+<span class="material-symbols-outlined text-slate-400 text-[20px]">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Logout Button -->
+<div class="px-4 mb-12">
+<button class="w-full bg-white dark:bg-card-dark rounded-xl p-4 flex items-center justify-center font-bold text-destructive active:bg-destructive/10 transition-colors">
+                Log Out
+            </button>
+</div>
+<!-- Footer -->
+<div class="text-center pb-8">
+<p class="text-slate-500 dark:text-slate-600 text-xs font-medium">TinderSnap v1.0</p>
+<p class="text-slate-500 dark:text-slate-600 text-[10px] mt-1">Made with love for creators</p>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-50 flex border-t border-slate-100 dark:border-white/5 bg-white/80 dark:bg-card-dark/80 backdrop-blur-xl px-6 pb-6 pt-3">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-bold">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">explore</span>
+<p class="text-[10px] font-bold">Explore</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<p class="text-[10px] font-bold">Messages</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">settings</span>
+<p class="text-[10px] font-bold">Settings</p>
+</a>
+</div>
+</div>
+</body></html>

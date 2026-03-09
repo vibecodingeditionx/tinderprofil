@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#fa3d63",
+                        "background-light": "#f8f5f6",
+                        "background-dark": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back_ios_new</span>
+</button>
+</div>
+</header>
+<main class="max-w-2xl mx-auto px-4 pb-32">
+<!-- Title Section -->
+<div class="pt-2 pb-6">
+<h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white">Photos are ready</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-2 font-medium">Your AI-enhanced profile photos are here.</p>
+</div>
+<!-- Photo Grid -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Photo Card 1 -->
+<div class="relative aspect-square rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Professional male portrait in natural lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAOB5qTEh2g_arEfbNOtpwKjIL2NhC8_A4KOeA0Us2K_gvUyueAFFllMPPD-HUsyMn7GA1Hl1uJJPa24YX2Ni_X1ASVNu24fUVxBlc2rnXK8ZqxG5h1C3Q8CE5NfgmlYArhysxEnjRZIExC27o5NtPSg1uZpMySu3AWXz1Zx811c_hFZq9nJda1O-95kA_kc0ko5F83HZ4fz1z2giKczTrOTEEpG7R7XyuKtKyeTdzRY7JbuP19RSecz8YYyGJlDr25e7BEZk6C3bw');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between items-center">
+<button class="p-1.5 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+<button class="p-1.5 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+</div>
+<!-- Photo Card 2 -->
+<div class="relative aspect-square rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Smiling man in business casual attire" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBh-c70mCk0myBffEl1mijVV7U6Ah2tm-v8k_8ebbPT8ONYPT9jnH85gzNZjCxXsY2WKa0gzFMUO1L8XkhSgrJR83dwb4mFXBmh_IIW-0pZJyTvUk7MQMS9dVaAss_TTEzvcymjB6XrSIrqdgp5LpFFKzNJJLb_xUUfyx4dlUi1GsuO781UfjET-ms7jdWC1NPQAvsfj8BpPjEHLZHbRGZqyahbJtJzWgQz-DQAoesm8rmbQvRj1mIkCZ-7Wt2orgVWisVoMABbqHk');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between items-center">
+<button class="p-1.5 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+<button class="p-1.5 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50">
+<span class="material-symbols-outlined text-[20px] fill-icon text-primary">favorite</span>
+</button>
+</div>
+</div>
+<!-- Photo Card 3 -->
+<div class="relative aspect-square rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Artistic profile shot with soft shadows" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCorIe_2o8MYz06J4eaq-i9eWMdoUZD_Q7M4zE91dDsFIDvr2ZoOM1JoIllZwyFrv703CR3vWtJ3x6GT2ADgxE3iP3aPSD5zjOlJu3RujPVRuQPptRnjsaX1D-yCkFBTP84rLVviuUXfDm5btOhdXYIv7c7_WcVQDwvJpGAypehuwerl4z2OK_L9JK_oq3K3zeyixZA_BGWyY6nJ2gpHw5eGYvb6KONNUPoLrqEcPh2etd51HfzdYXgfo9LGFOtynlpfJn5jK5fc2c');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between items-center">
+<button class="p-1.5 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+<button class="p-1.5 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+</div>
+<!-- Photo Card 4 -->
+<div class="relative aspect-square rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Stylish man standing outdoors in city" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAaqWinfDkHPx6VWriUPljDhf79Sv56RrOzOPep1oFgy5Tj5Cv1DTtWqvAj-RRBz3SZm5_6k7PF1NRbzrPKaf0Ym4QXtHOEgUaKZL2mLL9bKbjg1XURjeRqQpTJUBfF5PCBMN3mHEdKuOca6Jf9j78GR4kZlyJaQSdx3JqaenzOZ8osfnghc5PmTBrAmY_hA0YF--j1S2EG7FPz0JfhIbOIApxwChPZaROcayzkg8Uzc3uAHk0rOta3Uzv-Wu5z4mcPUJz1tqHz3J0');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between items-center">
+<button class="p-1.5 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+<button class="p-1.5 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+</div>
+<!-- Photo Card 5 -->
+<div class="relative aspect-square rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="High contrast portrait with studio lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuABWwlzBlkXnHB2RkgqRpKnHUct8DSyVfmstc3P5D5Eaq4I_xgn3qva6vGfbnHObKitrczcqTdF-TUqGFijVdW9v-tEhWZk287jnaryWPrvgwzI3i1Jjmi7JWM7tdb4Qq55EIyHuy-A9e3sRyuJaZnOMq2vYpiZSt8f9kZhU0_r2I9wRc7n3XIXmT1tjuFm4qcTTSiAQv4Ct1h4IG37Ozs68L_JsIKRn-0SCKcEkkBC3hT7ZwpRpDd2Pwf_mPfVwwP1SHhrcwWB5cs');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between items-center">
+<button class="p-1.5 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+<button class="p-1.5 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+</div>
+<!-- Photo Card 6 -->
+<div class="relative aspect-square rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Casual profile photo in park setting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBoCZITiFqgBk5llhPIUha6WL-B3dbGgImR1LVJ0NZWsrNvVOOzYA5wAhqLNmUVWtD5gk4dF7sP8KL9sFqIH4oWirBA3Kg7XCm3AV5FVTQmkQk2CTAxBjJsKp2IqhnIKKBpwU4jlkCB5Fsif9V1eqRRduxiV8gx0U9cictbx9_4Nu4nxy3Oi5Tcw7Jas--Ww5W6AszuJCTAWaRggky8g985yQAS9sZyu0iNwun1u8O0ff7c9BBsepW2J8np_5twNDRCoGCF4QJB3sU');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between items-center">
+<button class="p-1.5 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+<button class="p-1.5 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background-dark via-background-dark/95 to-transparent">
+<div class="max-w-2xl mx-auto flex flex-col gap-3">
+<button class="flex items-center justify-center w-full h-14 bg-primary text-white rounded-xl font-bold text-lg active:scale-[0.98] transition-transform">
+                Share Photos
+            </button>
+<button class="flex items-center justify-center w-full h-14 bg-transparent border-2 border-slate-700 dark:border-slate-800 text-slate-900 dark:text-white rounded-xl font-bold text-lg active:scale-[0.98] transition-transform">
+                Generate New
+            </button>
+<!-- iPhone Indicator Spacer -->
+<div class="h-4"></div>
+</div>
+</div>
+</body></html>

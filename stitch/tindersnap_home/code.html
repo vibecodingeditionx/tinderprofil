@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TinderSnap - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF375F",
+                        "background-light": "#f8f5f6",
+                        "background-dark": "#000000",
+                        "surface": "#161618",
+                        "muted": "#98989A",
+                        "border-color": "#2C2C2E"
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header -->
+<header class="p-4 pt-6 flex justify-between items-center sticky top-0 bg-background-dark/80 backdrop-blur-md z-10">
+<div>
+<h1 class="text-3xl font-bold tracking-tight">Hello, Alex</h1>
+<p class="text-muted text-sm font-medium mt-0.5">1 selfie → 6 Tinder photos</p>
+</div>
+<div class="bg-surface px-3 py-1.5 rounded-full flex items-center gap-2 border border-border-color">
+<span class="material-symbols-outlined text-primary text-sm font-bold">generating_tokens</span>
+<span class="text-primary font-bold text-sm">3 Tokens</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto pb-32">
+<!-- Recent Generations -->
+<section class="mt-6">
+<div class="px-4 mb-3 flex justify-between items-center">
+<h3 class="text-xl font-bold">Recent Generations</h3>
+<button class="text-primary text-sm font-semibold">View all</button>
+</div>
+<div class="flex gap-3 overflow-x-auto px-4 hide-scrollbar">
+<!-- Generation Items -->
+<div class="flex-shrink-0 w-32 group">
+<div class="aspect-square rounded-xl overflow-hidden relative bg-surface border border-border-color">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Modern portrait of a smiling young man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUPbKvwS0TYumgqbHgq0gqSz_pNSh0NyxXw5i30fJBDyBGC89ygqVkMj5R6WDTi5noiv1as57-UrAla42WlEW2zS7aCnF6KYEI0-_NxLbCY7IKBovwgo93CT31j9Y-LMjx1lu651wfMNBdkAh-3_PhQhY5W7nX0nxGtLYPRnAcWbgPP_awGY6JsGA_N_jKncjR_7jtEXV6O5rtxusX3J4c5MRm_GLfYp6J_l_yf0daUFktIB51OhnieP4rpb3JDeT8CuxEmcrlK7U"/>
+<div class="absolute bottom-2 left-2 right-2">
+<div class="bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center justify-center gap-1 border border-white/10">
+<span class="material-symbols-outlined text-[10px] text-green-400 font-bold">check_circle</span>
+<span class="text-[10px] font-bold text-white uppercase tracking-wider">Done</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-32 group">
+<div class="aspect-square rounded-xl overflow-hidden relative bg-surface border border-border-color">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Outdoor casual lifestyle male portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAneqWJhY3Ee6qDjShOx6f1HWjW66-1AHBO_tYrngaxK4O7eWgIH-KF_rp5nMVRD5Kk-apE5u1u_q4j2dJALCb06uR9w_v8CxUetA-z06hY10lZTTQ9dXSZKSSgTd65MxEk20XjrcZNAk4Q7jrZ3J5RXR_N24gAMe18SFedGQNYjjQ5zQqsdaR4ysPkxLlakN18WUgagjckkfOSeqr4y98XTj10cEHEtMygz5vmUHDnElppdJ1x12UbUrmevdJGt0tpjauOI-PR4ss"/>
+<div class="absolute bottom-2 left-2 right-2">
+<div class="bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center justify-center gap-1 border border-white/10">
+<span class="material-symbols-outlined text-[10px] text-green-400 font-bold">check_circle</span>
+<span class="text-[10px] font-bold text-white uppercase tracking-wider">Done</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-32 group">
+<div class="aspect-square rounded-xl overflow-hidden relative bg-surface border border-border-color">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Professional studio male headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMbkG-k4Y_UNQrHYgcCOKnpmjY8V_DbGG-YHBwXrAHvuWSbkjdNpp1s0ERXoZZxIbSDD3ix-WLmkPRgPHqiyR3DpkP_BXJOodr-6US4-9Da4uuGYb2ZFMFTZ5az9pn2BKsagGvpO0us1sJKB_XCkQor48aSMukjFWatmP_uOeHakrg-P64mB7OJ1b5wy3vXoKR13ylIcBoSw_k4bJ9wXDKDZIm0y7UgXKR-0jD57xBlBJoqdVoh5_dWjM4NV0Xg4v8TpPgSlUpr48"/>
+<div class="absolute bottom-2 left-2 right-2">
+<div class="bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center justify-center gap-1 border border-white/10">
+<span class="material-symbols-outlined text-[10px] text-green-400 font-bold">check_circle</span>
+<span class="text-[10px] font-bold text-white uppercase tracking-wider">Done</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-32 group">
+<div class="aspect-square rounded-xl overflow-hidden relative bg-surface border border-border-color">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Stylish man in urban setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBADVJCHmmQ2rU0EutNLwtJpLyN_nb-WxCuEvMTmDRdCUv7_5KbcDyZgpHWiaaQS7WKfov9BmeC7BmBAjzdxe0_mmCzLi8W3Ck570h1WUJWXo31afH4R91rwQSYL-eBcm8nStPgVUBDAlzH0cHN8Gg08qzVwSuBEP55qzUBALcpkfkgA8vOSU3cZH66uOQeciBMpPOF-egIwFDLLnxPxJeXdf7msozutl-3wXvv1MmlX70SgV4Z-_UmFcBlIc9Y3_sqieRzsqatsqs"/>
+<div class="absolute bottom-2 left-2 right-2">
+<div class="bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center justify-center gap-1 border border-white/10">
+<span class="material-symbols-outlined text-[10px] text-green-400 font-bold">check_circle</span>
+<span class="text-[10px] font-bold text-white uppercase tracking-wider">Done</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Style Gallery -->
+<section class="mt-10 px-4">
+<div class="mb-4">
+<h3 class="text-xl font-bold">Style Gallery</h3>
+<p class="text-muted text-sm">Choose your aesthetic</p>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Style Card: Natural -->
+<div class="bg-surface rounded-xl p-4 flex items-center gap-4 border border-border-color hover:border-primary/50 transition-colors">
+<div class="size-14 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-2xl">eco</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-lg leading-tight">Natural</h4>
+<p class="text-muted text-sm">Authentic look for everyday vibes</p>
+</div>
+<span class="material-symbols-outlined text-muted">chevron_right</span>
+</div>
+<!-- Style Card: Outdoor -->
+<div class="bg-surface rounded-xl p-4 flex items-center gap-4 border border-border-color hover:border-primary/50 transition-colors">
+<div class="size-14 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-2xl">landscape</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-lg leading-tight">Outdoor</h4>
+<p class="text-muted text-sm">Adventure-ready mountain &amp; park shots</p>
+</div>
+<span class="material-symbols-outlined text-muted">chevron_right</span>
+</div>
+<!-- Style Card: Social -->
+<div class="bg-surface rounded-xl p-4 flex items-center gap-4 border border-border-color hover:border-primary/50 transition-colors">
+<div class="size-14 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-2xl">celebration</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-lg leading-tight">Social</h4>
+<p class="text-muted text-sm">Candid party and nightlife aesthetics</p>
+</div>
+<span class="material-symbols-outlined text-muted">chevron_right</span>
+</div>
+<!-- Style Card: Professional -->
+<div class="bg-surface rounded-xl p-4 flex items-center gap-4 border border-border-color hover:border-primary/50 transition-colors">
+<div class="size-14 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-2xl">work</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-lg leading-tight">Professional</h4>
+<p class="text-muted text-sm">Sharp office and business casual style</p>
+</div>
+<span class="material-symbols-outlined text-muted">chevron_right</span>
+</div>
+<!-- Style Card: Travel -->
+<div class="bg-surface rounded-xl p-4 flex items-center gap-4 border border-border-color hover:border-primary/50 transition-colors">
+<div class="size-14 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-2xl">flight_takeoff</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-lg leading-tight">Travel</h4>
+<p class="text-muted text-sm">Wanderlust backgrounds from around the globe</p>
+</div>
+<span class="material-symbols-outlined text-muted">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action & Nav Container -->
+<div class="fixed bottom-0 left-0 right-0 z-20">
+<!-- CTA Button -->
+<div class="px-4 pb-4">
+<button class="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">auto_fix_high</span>
+                Generate Photos
+            </button>
+</div>
+<!-- Bottom NavBar -->
+<nav class="bg-surface border-t border-border-color px-2 py-2 flex justify-around items-center">
+<a class="flex flex-col items-center gap-1 p-2 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-muted" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-[10px] font-medium">Create</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-muted" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-medium">History</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-muted" href="#">
+<span class="material-symbols-outlined">token</span>
+<span class="text-[10px] font-medium">Tokens</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-muted" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</a>
+</nav>
+<!-- Safe Area Spacer for modern phones -->
+<div class="bg-surface h-4"></div>
+</div>
+</body></html>

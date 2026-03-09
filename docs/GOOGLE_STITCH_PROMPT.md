@@ -1,142 +1,212 @@
-# Google Stitch / AI Tasarım Promptu — TinderSnap Tüm Sayfalar
+# Google Stitch / AI Tasarım Promptu — TinderSnap
 
-Bu metni Google Stitch veya benzeri bir AI tasarım aracına vererek **TinderSnap** Telegram WebApp’inin tüm sayfalarının tutarlı, mobil öncelikli tasarımlarını üretmesini sağlayabilirsin.
+**Apple Dark Mode felsefesiyle, minimal Tinder tarzı Telegram WebApp tasarım brief'i.**
+
+Bu metni Google Stitch veya benzeri AI tasarım araçlarına vererek **TinderSnap** uygulamasının tüm sayfalarını sıfırdan, tutarlı ve yayın kalitesinde tasarlayabilirsin.
+
+---
+
+## Tasarım Felsefesi
+
+**"Apple dark mode'da Tinder nasıl tasarlardı?"**
+
+- **Minimal:** Her ekranda tek bir odak noktası. Gereksiz öğe yok.
+- **Derin:** Katmanlı siyah tonları, derinlik hissi.
+- **Yumuşak:** Keskin kenarlar yerine organik, yuvarlak formlar.
+- **İnsan odaklı:** Her piksel bir amaca hizmet eder.
+- **Sessiz lüks:** Gösterişsiz, rafine detaylar.
+- **Tinder DNA:** Flört, eğlence, oyunculuk — ama Apple'ın disipliniyle.
 
 ---
 
 ## Proje Özeti
 
-**TinderSnap**, Telegram içinde açılan bir WebApp’tir. Kullanıcı bir selfie yükler; yapay zeka (Google Gemini) bu fotoğraftan 6 adet Tinder tarzı profil fotoğrafı üretir. Freemium: 3 ücretsiz deneme, sonrası Telegram Stars ile token satın alınır.
+**TinderSnap**, Telegram içinde açılan bir WebApp. Kullanıcı bir selfie yükler; yapay zeka (Gemini) bu fotoğraftan 6 adet Tinder tarzı profil fotoğrafı üretir. Freemium: 3 ücretsiz deneme, sonrası Telegram Stars ile token satın alınır.
 
 - **Platform:** Telegram Mini App (mobil öncelikli, dar viewport)
 - **Hedef kitle:** 18–35 yaş, dating app kullanıcıları
-- **Diller:** EN, TR, RU (metinler placeholder olarak İngilizce yazılabilir)
+- **Diller:** EN, TR, RU (placeholder metinler İngilizce)
 
 ---
 
-## Tasarım Sistemi (Zorunlu)
+## Tasarım Sistemi
 
-Tüm ekranlar bu sisteme uymalı:
+### Renk Paleti — Apple Dark
 
-### Renkler
-- **Arka plan:** `#0A0A0A` (app-black), sayfa içi bloklar `#141414` (app-dark)
-- **Kartlar:** `#1C1C1E` (app-card), border `#3A3A3C` (app-border)
-- **Primary (CTA, vurgu):** `#FF4D6D` (Tinder kırmızı-pembe), hover/light `#FF6B84`
-- **Secondary (ikincil vurgu):** `#FF9F43` (turuncu)
-- **Metin:** Ana `#FFFFFF`, ikincil `#8E8E93`, soluk `#636366`
-- **Primary muted (arka plan vurgu):** `rgba(255,77,109,0.15)`
+| Rol | Değer | Kullanım |
+|-----|-------|----------|
+| **Background (en derin)** | `#000000` | Ana sayfa arka planı |
+| **Background (secondary)** | `#0C0C0E` | Kartlar ve içerik blokları |
+| **Surface** | `#161618` | Kartlar, input, modal |
+| **Elevated** | `#1C1C1E` | Hover, seçili durum |
+| **Border** | `#2C2C2E` | İnce ayırıcılar |
+| **Primary** | `#FF375F` | CTA, ana aksiyon (Tinder kırmızı) |
+| **Primary muted** | `rgba(255,55,95,0.12)` | Seçili arka plan, vurgu |
+| **Text primary** | `#FFFFFF` | Başlıklar, kritik metin |
+| **Text secondary** | `#98989A` | Açıklama, ikincil metin |
+| **Text tertiary** | `#636366` | Placeholder, disabled |
+| **Success** | `#34C759` | Başarı, onay |
+| **Destructive** | `#FF3B30` | Çıkış, silme |
 
-### Tipografi
-- Font: Inter veya SF Pro Display, sistem sans-serif fallback
-- Başlıklar: bold, 22–24px (sayfa başlığı), 16–18px (bölüm)
-- Gövde: 14–16px, line-height 1.4–1.5
-- Küçük metin: 12px, muted renk
+**Kural:** Tinder kırmızısı (`#FF375F`) sadece CTA ve kritik aksiyonlarda. Ekranda en fazla 1–2 primary buton.
+
+---
+
+### Tipografi — SF Pro Ruhu
+
+**Font:** SF Pro Display / SF Pro Text (veya Inter, system-ui fallback)
+
+| Seviye | Boyut | Ağırlık | Line-height | Kullanım |
+|--------|-------|---------|-------------|----------|
+| **Large Title** | 34px | Bold (700) | 1.2 | Sayfa başlığı |
+| **Title 1** | 28px | Semibold (600) | 1.25 | Bölüm başlığı |
+| **Title 2** | 22px | Semibold (600) | 1.3 | Kart başlığı |
+| **Title 3** | 20px | Semibold (600) | 1.3 | Alt başlık |
+| **Body** | 17px | Regular (400) | 1.47 | Gövde metni |
+| **Callout** | 16px | Regular (400) | 1.37 | Açıklama |
+| **Footnote** | 13px | Regular (400) | 1.35 | Küçük, etiket |
+| **Caption** | 12px | Regular (400) | 1.33 | Tarih, badge |
+
+**Kurallar:**
+- Başlık hiyerarşisi net: her sayfada tek Large Title.
+- Gövde metinlerde 17px minimum (okunabilirlik).
+- Metin kontrastı: primary en az #FFFFFF, secondary #98989A.
+- Letter-spacing: başlıklarda -0.5px.
+
+---
+
+### Spacing & Layout
+
+- **Base unit:** 8px (grid: 8, 16, 24, 32, 40, 48)
+- **Sayfa padding:** 20px yatay, 16px üst
+- **Kart padding:** 20px iç
+- **Bileşen arası:** 12–16px
+- **Safe area:** `padding-bottom: env(safe-area-inset-bottom)` tüm sabit alt elementlerde
+
+---
 
 ### Bileşen Kuralları
-- Butonlar: min-height 44px, border-radius 12px, primary butonlar #FF4D6D
-- Kartlar: border-radius 12–16px, padding 16–24px, ince border veya gölge
-- Input/alan: min-height 48px, font-size 16px (zoom önleme)
-- Alt navigasyon ve sabit alanlar: `padding-bottom: env(safe-area-inset-bottom)` kullan
-- Mobil: tek sütun, yeterli dokunma alanı (min 44px)
 
-### Genel UX
-- Koyu tema (Telegram ile uyumlu)
-- Sayfa geçişlerinde hafif slide/fade düşün
-- Loading: skeleton veya spinner, primary renkte
-- Boş durumlar: kısa metin + CTA butonu
-- Hata durumları: net mesaj + “Tekrar dene” butonu
+**Butonlar:**
+- Min-height: 50px (Apple dokunma alanı)
+- Border-radius: 14px (yumuşak)
+- Primary: dolu arka plan, beyaz metin
+- Secondary: outline veya surface arka plan
+- Danger: outline, kırmızı metin
+
+**Kartlar:**
+- Border-radius: 16px
+- Arka plan: #161618
+- Border: 1px #2C2C2E (opsiyonel)
+- Gölge: minimal, sadece elevated durumda
+
+**Input:**
+- Min-height: 50px
+- Font-size: 17px (zoom önleme)
+- Border-radius: 12px
+
+**İkonlar:**
+- Boyut: 24px (standart), 20px (kompakt)
+- Stroke: 1.5–2px
+- Renk: text-secondary veya primary
 
 ---
 
-## Sayfa Listesi ve Detaylı Brief
+**Genel UX:**
+- Sayfa geçişleri: hafif fade (200–300ms)
+- Loading: sistem spinner veya skeleton
+- Boş durum: minimal metin + tek CTA
+- Hata: net mesaj + "Tekrar dene" butonu
 
-Her sayfa için: ekran adı, amaç, üst alan (header), içerik blokları, alt CTA/navigasyon ve özel notlar.
+---
+
+## Sayfa Brief'leri
+
+Her sayfa sıfırdan tasarlanmalı. Minimal, odaklı, Apple dark estetiği.
 
 ---
 
 ### 1. HomePage (Ana Sayfa)
 
-**Amaç:** Kullanıcıyı karşılamak, token bakiyesini göstermek, “Fotoğraf oluştur” aksiyonuna yönlendirmek.
+**Odak:** Kullanıcıyı karşılamak, token göstermek, "Fotoğraf oluştur" aksiyonuna yönlendirmek.
 
 **Layout:**
-- Üst: Sol tarafta “Merhaba, [İsim] 👋” (veya “Welcome, [Name]”), sağ üstte **token bakiye widget’ı** (örn. yıldız ikonu + “3” veya “12” gibi sayı, küçük badge).
-- Hemen altında kısa tanım: “1 selfie → 6 Tinder fotoğrafı” gibi bir cümle.
-- **Son üretimler** bölümü: “Son Üretimler” başlığı, en fazla 3 satırda liste (tarih + “Tamamlandı”/“Bekliyor” chip’i). Liste boşsa “Henüz üretim yok” + “Şimdi oluştur” linki.
-- “Tümünü gör” linki → Geçmiş sayfasına gidecek şekilde göster.
-- **Stil galerisi**: 6 fotoğraf stilinin küçük kartları (Natural, Outdoor, Social, Professional, Cozy, Travel). Yatay kaydırılabilir veya 2x3 grid. Her kartta stil adı + küçük örnek görsel/ikon.
-- Alt kısım: Telegram MainButton ile aynı işlevi gören büyük **“Fotoğraf Oluştur”** CTA butonu (primary renk, tam genişlik).
+- **Header:** Sol: "Merhaba, [İsim]" (Large Title). Sağ: token badge — yuvarlak, minimal, sayı + küçük ikon.
+- **Alt:** "1 selfie → 6 Tinder fotoğrafı" (Callout, text-secondary).
+- **Son üretimler:** Başlık "Son Üretimler" (Title 3). Yatay scroll veya 2 sütun grid. Her kart: 6 thumbnail grid + tarih + chip (Tamamlandı/Bekliyor). Boşsa: "Henüz üretim yok" + "Şimdi oluştur" linki.
+- **Stil galerisi:** 6 stil kartı: Natural, Outdoor, Social, Professional, Cozy, Travel. Yatay scroll. Her kart: minimal ikon, stil adı, tek satır. Seçim yok — sadece önizleme.
+- **CTA:** Tam genişlik, 50px yükseklik, primary renk. "Fotoğraf Oluştur". Alt navigasyonun hemen üstünde.
 
-**Not:** Alt navigasyon bu sayfada görünür (Ana Sayfa seçili).
+**Not:** Alt navigasyon görünür (Ana Sayfa seçili).
 
 ---
 
-### 2. OnboardingPage (Hoş Geldin / Kurulum)
+### 2. OnboardingPage (Hoş Geldin)
 
-**Amaç:** İlk kullanıcıyı 4 adımda uygulamaya alıştırmak; tercih ve izin toplamak.
+**Odak:** 4 adımda ilk kullanıcıyı alıştırmak. Minimal, akıcı.
 
-**Genel:** Adım göstergesi (1/4, 2/4, 3/4, 4/4) üstte veya üst-orta. “İleri” / “Başla” butonları sağ altta veya ortada. Geri ok sol üstte (2–4. adımlarda).
+**Genel:** Adım göstergesi (1/4, 2/4, 3/4, 4/4) üstte veya üst-orta. Geri ok sol üstte (2–4. adımlarda). Alt navigasyon **gösterilmez**.
 
-- **Adım 1 – Karşılama:** Büyük logo veya illüstrasyon, “TinderSnap’e Hoş Geldin” başlığı, “1 selfie ile 6 Tinder fotoğrafı oluştur” alt metni. Tek CTA: “Başla”.
-- **Adım 2 – Tercih:** “Hangi tarz sana daha yakın?” Başlık altında 3–4 seçenek kartı (örn. Doğal, Sosyal, Profesyonel, Macera). Tek seçim, seçilen kart vurgulu (border veya arka plan primary muted).
-- **Adım 3 – Bildirim:** “Hazır olduğunda haber verelim mi?” metni, bildirim aç/kapa toggle. “Devam et” butonu.
-- **Adım 4 – Tamamlandı:** Onay/başarı ikonu (örn. tik), “Hazırsın!” başlığı, “Şimdi ilk fotoğraflarını oluştur” alt metni. CTA: “Fotoğraf Oluştur” → Generate sayfasına yönlendirme.
+- **Adım 1:** Logo veya minimal illüstrasyon. "TinderSnap'e Hoş Geldin" (Large Title). "1 selfie ile 6 Tinder fotoğrafı oluştur" (Callout). Tek CTA: "Başla".
+- **Adım 2:** "Hangi tarz sana daha yakın?" (Title 1). 3–4 seçenek kartı: Doğal, Sosyal, Profesyonel, Macera. Tek seçim. Seçilen kart: primary muted arka plan veya ince primary border.
+- **Adım 3:** "Hazır olduğunda haber verelim mi?" (Title 3). Toggle (Apple stili). "Devam et" butonu.
+- **Adım 4:** Onay ikonu (✓). "Hazırsın!" (Large Title). "Şimdi ilk fotoğraflarını oluştur" (Callout). CTA: "Fotoğraf Oluştur".
 
-**Not:** Bu sayfada alt navigasyon **gösterilmez**. Safe area (özellikle alt) korunmalı.
+**Not:** Safe area her adımda korunmalı.
 
 ---
 
 ### 3. GeneratePage (Fotoğraf Oluştur)
 
-**Amaç:** Selfie yükleme → stil seçimi → üretim başlatma ve ilerleme gösterme. 3 aşamalı tek sayfa (adımlar sırayla gösterilir).
+**Odak:** Selfie yükleme → stil seçimi → üretim. 3 aşamalı tek sayfa (adımlar sırayla).
 
-**Aşama 1 – Fotoğraf yükleme:**
-- Başlık: “Fotoğrafını ekle”.
-- Büyük yükleme alanı: Kesikli çerçeve, kamera ikonu, “Çek veya galeriden seç” metni. Drag-over durumunda border primary renkte.
-- Küçük uyarı: “JPG/PNG, max 10MB. Yüz net görünmeli.”
-- Yüklenen fotoğraf önizlemesi (küçük crop) + “Değiştir” butonu.
-- Token kontrolü: Bakiye 0 ise uyarı banner’ı + “Token al” butonu.
-- Alt: “Devam” butonu (fotoğraf seçildikten sonra aktif).
+**Aşama 1 — Fotoğraf:**
+- Başlık: "Fotoğrafını ekle" (Title 1).
+- Yükleme alanı: Kesikli çerçeve, 16px radius. Ortada kamera ikonu + "Çek veya galeriden seç" (Callout). Drag-over: primary border.
+- Uyarı: "JPG/PNG, max 10MB. Yüz net görünmeli." (Footnote, text-tertiary).
+- Önizleme: Yüklenen fotoğraf + "Değiştir" linki.
+- Bakiye 0: Uyarı banner + "Token al" butonu.
+- Alt: "Devam" (fotoğraf seçildikten sonra aktif).
 
-**Aşama 2 – Stil seçimi:**
-- Başlık: “Stilini seç”.
-- 6 stil kartı: Yatay scroll veya 2 sütun grid. Her kart: stil adı (Natural, Outdoor, Social, Professional, Cozy, Travel), kısa açıklama (1 satır), örnek görsel veya ikon. Seçilen kart primary border veya glow.
-- Alt: “Üretimi başlat” butonu.
+**Aşama 2 — Stil:**
+- Başlık: "Stilini seç" (Title 1).
+- 6 stil kartı: Yatay scroll veya 2 sütun. Her kart: stil adı, 1 satır açıklama, örnek görsel/ikon. Seçilen: primary border veya glow.
+- Alt: "Üretimi başlat".
 
-**Aşama 3 – Üretim ilerlemesi:**
-- Başlık: “Fotoğrafların hazırlanıyor”.
-- Dikey progress: “Analiz ediliyor…” → “Fotoğraflar üretiliyor…” → “Tamamlandı”. Progress bar (primary renk) veya adım göstergesi.
-- İsteğe bağlı: Basit animasyon (pulse/glow).
-- Tamamlanınca kısa metin: “Hazır! Sonuçlara git” ve buton → Result sayfasına yönlendirme.
+**Aşama 3 — İlerleme:**
+- Başlık: "Fotoğrafların hazırlanıyor" (Title 1).
+- Progress: "Analiz ediliyor…" → "Fotoğraflar üretiliyor…" → "Tamamlandı". Progress bar (primary renk).
+- Tamamlanınca: "Hazır! Sonuçlara git" + buton.
 
-**Not:** Bu sayfada alt navigasyon **gösterilmez**. Header’da geri butonu olabilir.
+**Not:** Alt navigasyon **gösterilmez**. Header'da geri butonu.
 
 ---
 
 ### 4. ResultPage (Üretim Sonuçları)
 
-**Amaç:** 6 üretilen fotoğrafı göstermek; indirme, favorileme ve paylaşma sunmak.
+**Odak:** 6 fotoğrafı göstermek; indirme, favori, paylaşma.
 
 **Layout:**
-- Üst: “Fotoğrafların hazır” benzeri başlık, isteğe bağlı stil adı veya tarih.
-- **Grid:** 6 fotoğraf, 2 sütun x 3 satır veya 3 sütun x 2 satır. Her hücre: kare oran, yuvarlatılmış köşe, tıklanınca tam ekran.
-- Her fotoğraf kartında: küçük **İndir** ikonu (köşede) ve isteğe **Favori** (kalp) ikonu.
-- Alt bölüm: “Yeni üretim yap” (secondary veya outline buton), “Paylaş” (Telegram’a gönder) butonu.
-- Tam ekran görünüm: Fotoğraf tam ekran, kapat (X), İndir ve Favori butonları.
+- Başlık: "Fotoğrafların hazır" (Large Title). İsteğe tarih/stil.
+- **Grid:** 6 fotoğraf, 2x3 veya 3x2. Kare oran, 12px radius. Tıklanınca tam ekran.
+- Her kartta: köşede İndir ikonu, Favori (kalp) ikonu.
+- Alt: "Yeni üretim yap" (secondary), "Paylaş" (primary).
+- Tam ekran: Fotoğraf tam ekran, kapat (X), İndir, Favori.
 
-**Not:** Alt navigasyon bu sayfada **gösterilmez** veya sadece “Ana sayfa” / “Yeni üretim” kısayolları verilebilir.
+**Not:** Alt navigasyon **gösterilmez**. Sadece ana sayfa / yeni üretim kısayolları.
 
 ---
 
 ### 5. HistoryPage (Geçmiş)
 
-**Amaç:** Kullanıcının geçmiş üretimlerini listelemek; her birine tıklanınca Result sayfasına gitmek.
+**Odak:** Geçmiş üretimleri listelemek.
 
 **Layout:**
-- Başlık: “Üretim geçmişi”.
-- Liste: Her satır bir “iş” kartı. Kartta: solda 6 küçük thumbnail (grid veya yatay strip), sağda veya altta tarih + stil adı. “Tamamlandı” / “Başarısız” chip’i.
-- Sayfalama: 10’ar öğe, altta “Daha fazla” veya sayfa numaraları.
-- Boş durum: “Henüz üretim yok” metni + “İlk fotoğraflarını oluştur” CTA.
-- Loading: Kartlar için skeleton (6 kare + 2 satır metin).
+- Başlık: "Üretim geçmişi" (Large Title).
+- Liste: Her satır bir iş kartı. Solda 6 thumbnail (grid veya strip), sağda veya altta tarih + stil adı. Chip: Tamamlandı/Başarısız.
+- Sayfalama: 10'ar öğe, "Daha fazla" veya sayfa numaraları.
+- Boş: "Henüz üretim yok" + "İlk fotoğraflarını oluştur" CTA.
+- Loading: Skeleton (6 kare + 2 satır metin).
 
 **Not:** Alt navigasyon görünür (Geçmiş seçili).
 
@@ -144,36 +214,37 @@ Her sayfa için: ekran adı, amaç, üst alan (header), içerik blokları, alt C
 
 ### 6. TokensPage (Token / Satın Al)
 
-**Amaç:** Mevcut bakiye göstermek, paket seçtirip Telegram Stars ile satın alma akışına götürmek.
+**Odak:** Bakiye göstermek, paket seçtirip satın alma akışına götürmek.
 
 **Layout:**
-- Üst: “Token’ların” veya “Bakiye” başlığı. Hemen altında büyük bakiye alanı: yıldız/coin ikonu + sayı (örn. “3”) + “ücretsiz deneme” veya “token” etiketi.
-- Açıklama: “Her üretim 1 token kullanır. Paket seç, Stars ile öde.”
-- **3 paket kartı** (dikey liste):
-  - **Starter:** “10 üretim”, “50 Stars”, “Başlangıç paketi” alt metni.
-  - **Pro:** “30 üretim + HD”, “120 Stars”, “En popüler” rozeti (primary veya secondary).
-  - **Unlimited:** “30 gün sınırsız”, “300 Stars”.
-- Her kartta “Satın al” veya “Seç” butonu (primary/secondary).
-- Ödeme sonrası: “Ödeme başarılı” toast/mesajı; bakiye alanı güncellenmiş gösterilebilir (ekranda metin olarak “Bakiye: 13” gibi).
+- Başlık: "Token'ların" (Large Title).
+- Bakiye alanı: Büyük, merkezi. İkon + sayı + "ücretsiz deneme" veya "token" etiketi.
+- Açıklama: "Her üretim 1 token kullanır. Paket seç, Stars ile öde." (Callout).
+- **3 paket kartı:**
+  - Starter: 10 üretim, 50 Stars, "Başlangıç paketi"
+  - Pro: 30 üretim + HD, 120 Stars, "En popüler" rozeti
+  - Unlimited: 30 gün sınırsız, 300 Stars
+- Her kartta "Satın al" butonu (primary).
+- Ödeme sonrası: Toast veya inline mesaj; bakiye güncellenir.
 
-**Not:** Alt navigasyon görünür (Token seçili). Bu sayfada alt navigasyon gizlenebilir de (PRD’de tokens hide listesinde).
+**Not:** Alt navigasyon görünür veya gizlenebilir (proje kurallarına göre).
 
 ---
 
 ### 7. SettingsPage (Ayarlar)
 
-**Amaç:** Profil, dil, bildirim, yasal linkler ve çıkış tek yerden yönetilsin.
+**Odak:** Profil, dil, bildirim, yasal, çıkış. Tek yerden yönetim.
 
 **Layout (sırayla):**
-- **Telegram profili:** Avatar (yuvarlak), ad soyad, @username. Kart veya üst blok.
-- **Bakiye:** “X token kaldı” + “Token satın al” linki/butonu (Tokens sayfasına).
-- **Dil:** “Dil” satırı, sağda mevcut dil (EN/TR/RU). Tıklanınca dil seçim modal’ı (3 seçenek).
-- **Tercih edilen stil:** Varsayılan stil (Natural vb.) gösterilip değiştirilebilir (liste veya dropdown).
-- **Bildirimler:** Aç/Kapa toggle.
-- **Gizlilik politikası:** Satır, tıklanınca dış link veya in-app sayfa.
-- **Kullanım koşulları:** Aynı şekilde.
-- **Çıkış:** “Çıkış yap” butonu (danger/outline veya metin).
-- Footer: “TinderSnap v1.0” veya “Versiyon 1.0.0”.
+- **Telegram profili:** Avatar (yuvarlak), ad soyad, @username. Üst kart.
+- **Bakiye:** "X token kaldı" + "Token satın al" linki.
+- **Dil:** Satır, sağda mevcut dil. Tıklanınca modal (EN/TR/RU).
+- **Tercih edilen stil:** Varsayılan stil, değiştirilebilir.
+- **Bildirimler:** Toggle.
+- **Gizlilik politikası:** Satır, tıklanınca link.
+- **Kullanım koşulları:** Aynı.
+- **Çıkış:** "Çıkış yap" (danger, metin veya outline).
+- Footer: "TinderSnap v1.0" (Caption, text-tertiary).
 
 **Not:** Alt navigasyon görünür (Ayarlar seçili).
 
@@ -181,33 +252,34 @@ Her sayfa için: ekran adı, amaç, üst alan (header), içerik blokları, alt C
 
 ## Alt Navigasyon (Bottom Navigation)
 
-Tüm sayfalarda (Onboarding, Generate, Result, Tokens hariç – proje kurallarına göre) sabit alt navigasyon:
+Tüm sayfalarda (Onboarding, Generate, Result, Tokens hariç – proje kurallarına göre):
 
-- **Ana Sayfa** (ev ikonu)
-- **Oluştur** (kamera/fotoğraf ikonu)
-- **Geçmiş** (saat/liste ikonu)
-- **Token** (yıldız/coin ikonu)
-- **Ayarlar** (dişli ikonu)
+- **Ana Sayfa** (ev)
+- **Oluştur** (kamera)
+- **Geçmiş** (saat/liste)
+- **Token** (yıldız/coin)
+- **Ayarlar** (dişli)
 
-Arka plan: app-card, üst border ince. Seçili öğe primary renkte, diğerleri muted. Alt padding: `env(safe-area-inset-bottom)`.
+Arka plan: #161618. Üst border: 1px #2C2C2E. Seçili: primary renk. Diğerleri: text-tertiary. Alt padding: `env(safe-area-inset-bottom)`.
 
 ---
 
 ## Ek Talimatlar
 
-1. **Tutarlılık:** Tüm sayfalarda aynı renk paleti, aynı border-radius ve buton stilleri kullan.
-2. **Mobil öncelik:** 375x812 veya 390x844 gibi bir viewport için tasarla; büyük parmak alanları.
-3. **Placeholder metin:** İngilizce yazılabilir; “Welcome”, “Create photos”, “Token balance”, “Settings” vb.
-4. **İkonlar:** Lucide veya benzeri minimal çizgi ikonlar; doluluk oranı düşük.
-5. **Telegram:** Üst/alt safe area’yı mutlaka bırak; Telegram UI ile çakışma olmasın.
-6. **Erişilebilirlik:** Buton ve linklerde yeterli kontrast; focus durumları düşünülebilir.
+1. **Tutarlılık:** Tüm sayfalarda aynı renk paleti, aynı border-radius, aynı tipografi.
+2. **Mobil öncelik:** 375x812 veya 390x844 viewport. Min 44px dokunma alanı.
+3. **Placeholder metin:** İngilizce: "Welcome", "Create photos", "Token balance", "Settings".
+4. **İkonlar:** Lucide veya SF Symbols. Minimal, ince stroke.
+5. **Telegram:** Üst/alt safe area mutlaka korunmalı.
+6. **Erişilebilirlik:** Buton ve linklerde yeterli kontrast; focus durumları.
+7. **Apple ruhu:** Her ekranda boşluk, nefes alan. Gereksiz süsleme yok.
 
 ---
 
 ## Çıktı Beklentisi
 
-- Her sayfa için ayrı ekran tasarımı (wireframe veya high-fidelity).
-- İsteğe bağlı: bileşen seti (buton, kart, input, list row) tek bir “Design system” sayfasında toplanabilir.
-- Responsive: Öncelik mobil; tablet için sadece max-width ile genişleyen layout yeterli.
+- Her sayfa için ayrı ekran tasarımı (high-fidelity).
+- İsteğe bağlı: bileşen seti (buton, kart, input, list row) tek "Design system" sayfasında.
+- Responsive: Öncelik mobil; tablet için max-width ile genişleyen layout.
 
-Bu brief’i Google Stitch’e vererek “TinderSnap Telegram WebApp – tüm sayfalar” için tutarlı ekran tasarımları üretebilirsin.
+Bu brief ile TinderSnap'in tüm sayfalarını Apple dark konseptinde, minimal ve Tinder tarzında tasarlayabilirsin.

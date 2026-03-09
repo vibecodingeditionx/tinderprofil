@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=375, height=812, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF375F",
+                        "background-light": "#f8f5f6",
+                        "background-dark": "#000000",
+                        "card-dark": "#1C1C1E",
+                        "text-secondary": "#98989A"
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .status-badge {
+            background-color: rgba(48, 209, 88, 0.15);
+            color: #30D158;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-slate-100 font-display">
+<div class="relative flex h-screen w-full max-w-[375px] mx-auto flex-col overflow-hidden border-x border-white/5">
+<!-- Header -->
+<header class="flex flex-col px-4 pt-12 pb-4 sticky top-0 bg-black/80 backdrop-blur-md z-10">
+<div class="flex justify-between items-center mb-2">
+<span class="material-symbols-outlined text-primary text-2xl">arrow_back_ios</span>
+<span class="material-symbols-outlined text-primary text-2xl">more_horiz</span>
+</div>
+<h1 class="text-[34px] font-bold tracking-tight text-slate-100">History</h1>
+</header>
+<!-- History List -->
+<main class="flex-1 overflow-y-auto px-4 space-y-3 pb-24">
+<!-- List Item 1 -->
+<div class="bg-card-dark rounded-xl p-3 flex gap-4 items-center">
+<!-- Thumbnail Grid (2x3) -->
+<div class="grid grid-cols-2 grid-rows-3 gap-0.5 w-[70px] h-[105px] rounded-lg overflow-hidden shrink-0">
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Portrait of a woman professional headshot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3FRcYmBGu0BaI5aSRaDxAzVvbFRe0r_XtuXZalmBABrO4HIu8ukMoVfUwo4d4tWkn14_M92qdGG6gOc_JVtgzuTjP3ip4IHdZgL4WQlhoyNJPWwu5scCe8XSGf_1ClBVD_7ifUHDtaIeH3kPgiLN1suL79l_Rpudmta84Qs-eOsy8YWrQtdQNHuyxlsAIJEaVqxD0NZf5YImd_EE4FPchA_NS0AJhkuEwsW8j42ggH0cxSmv764RcJOWU0JuZoise-BS5NEeLAyI')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Portrait of a man professional headshot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxhDEAKItlQeX6qpWav0v3SS7IBncq_RNOx8HAXc-loay8cF5lIHvUxIk1yHuLAHCdQM483wQgB69T-ZtrQxTN3plWBIIjWzthrLVHFAnm6fK70lUw-0LEvoAj78a9Kn7atczN-7fatu7iroPGyhCTx2RsfppCjjhrxz5pzJWv8InWPfhuqfw91h_rI_agb--AA3VuI0ZL2Gxe_FMuDmoPOOjjyDIl2VItEJb6tBeDGhW5FDA8nA8lqSCQDNl7povvklKtjKCQJ9k')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Close up portrait office style" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAYDbu0FajEg0v7Xpqv5bvannEj-aPJhmNyyal67RaP__oHhlsBwBl5kfFcm30_MNiH-8EKjM08FBm91xPHfvb5qbcp3sHbaA8RRG0VryflYIHS6hZyab-4LTSnf_KxOw3DPuilIoowedA6w1AplVaA1cE8bEk9OqD7gAXAzRqCVl4b9ex36u8wJN4-c0ypwvZMp_OrWodNdQ9D2hfyLxny33VDdye7dUKXeJIt9DcgMOOTcPt-ntLFdA2PeX1t8Zvbs9AbssXe0uA')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Business profile photo man" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA07q01sjqEp0hGO4rTTiXBNBxbLkXS0xM-jn78oAg1P1UUnF-Ggi5_ymLxMOYEyJlcLLYSR17FqulUtU43xtFsvVCpdY3zXvggZlmQMV9pukFRN1NQu79trT9fZJViZRs8k4OUGdlySCFP1aDEL57CB-2VPBO2NQ7EYv2GqFM99Waqmwj15nnkZsXlY2Ay9idAWonNLS0g5_0TRNiIorjQ6dpWuRHuWPkfubnU0ofxVb3GTF3xtb05-7eTTYf_DUfPm882sHu9CZU')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Casual professional portrait woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC9BJRsrlrCsyJ3nz0yRLGadK0B7Neow-q3zDW9xqSEvFsUT5LvOK3APMosB4W3MdO3zsi6Q0sVSa-N9wICjlySBz7jJh7tqjqTFbd6gUp1xt2U6q4D3h4S-otNw945PfZ6Br_AEqvnXdRlC36GnoPN-8hLs0RdTRzDURlI1GTI9s5jBRnB8e-Ew3HTrh688IkxgOj0VL-srOsh5CdWcsV--Qkyog0KmRLiGaVhgFX_VR0g05X7dpCe3Fhz7mkJsIVS5gWWUPo4-bE')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Confident executive headshot man" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1tAP6-3ELlkbPH-P-oGfkOUdjN1us3I4khrmQa3iPUKQ3Xw0gv5rLon8QuOBnkR7o7FsUJ0cg0IDoswjuDwzTy0SVGjQ-A-DyJ1g8KbYxP0XL8UIbvQ6oOETIAb_2uYNSv8x3ejN96OmyA2K1LHpa_zf0xGGL2d73v2AAHpzjy6zU915VYFi-ktQLkw2zkXD0Me-P612L_RsQLo26AjKX1Vylh_KoIwo70cLbCzHGn20no3_L7JUvk5wwiyZWPAVP0uV9uH664_E')"></div>
+</div>
+<!-- Content -->
+<div class="flex flex-col flex-1 justify-center gap-1">
+<p class="text-[17px] font-semibold text-slate-100">Oct 24, 2023</p>
+<p class="text-[15px] text-text-secondary">Style: Professional</p>
+<div class="mt-2 flex items-center gap-1.5 status-badge w-fit px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px] font-bold">check</span>
+<span class="text-[12px] font-bold uppercase tracking-wider">Done</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-secondary/40 text-xl">chevron_right</span>
+</div>
+<!-- List Item 2 -->
+<div class="bg-card-dark rounded-xl p-3 flex gap-4 items-center">
+<div class="grid grid-cols-2 grid-rows-3 gap-0.5 w-[70px] h-[105px] rounded-lg overflow-hidden shrink-0">
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Urban lifestyle street portrait" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHNLjRJzCIPACVOHkA8zkDNKS0ASl_kqKku-4DUWloIKFvc5dP7HqW3s5sWZB6FslpMXCyc9VKBUuE0rrfOsUlB8V0YKjeFrO2rk8q2ySETKPWWmM1o47Q0LFCWX2EbUj0ZnQ-Ze0vgAULj-iejtfMryE6e4_958i2sdjYfw1-jcjUVexW_5YuDV7m9LwHpM5W221-Xoua8-SFDbmyex8NuJEiaFEY-ot9rvCjaem3dyjQyUu1rSUKbWu2gkwIw_x0T3SI7b1dciU')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Casual outdoor photoshoot man" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDbhcEMWkwL_TbGkwuLism76BwkB_UxKfFFgONCQ_q_3qOWxrGo0AzgKsoz8WLA3SJipyi_ASWJwXclsDlu4ItvLKYxVDGj9p8elVY9ZGW4hI8K5tPgEWrNAZX6xwcbSzqarXfRTPuTag9pVcKS3skHzq--PtIerF6zkRmrvIgBInO1jfa-hWfONCHIpMSMd65kvo7NMnrnP56LhdvNcw_1h71lskA5EV9mdS_7heHTKCQqb1WUytQzA9zdFANBkxyXKXfU180gcfI')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Model posing in sun light" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKRO7ArSGOnIlp8euX34dg3Y3Md1D0otEwPkOpL-oNNSa_hVMTAYBYWwkSTJxP3YfrDePBmWdPpeL6K1z9pW1V7p_Dg44qwwj3L6MuFnixrMY0F1BuIYfoWoJNhkLNvYYKKaVKeR0DUPPH2On-lNKfwAZLHIhrcJaXfPZMonZSqWQ3A2nedyn4VBgBgLm4cSGpVr8K6KU9tQaMy56oCVKyhD5RtCazfuRIyaSg3hkJHQk5LnsVgov3aF6_P7PwRaUuRCkqSoU2vdI')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Cool man portrait urban style" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYCoFVn5wcuDj3x5X--NMqZmTqmnZBTItKVlLUnt7OrbdEfk_zZ4hjhQ-rRQ_BzMUlhN3fXBn7d0oM3CmCFgKHWkmLRqWJiHpJ3hpH5EJ9Y1RD2jnT-ejP0nrKOdSw9m5Y2t_eMDDsEUTxlJ3QYTsZQL_MX6Re39NUFm45PNumg4g28UkYF2IUWnVB-YG6fnz8qqO0ByFkl0SGW5BhKwcWOo5-liQAxY-OgGoQcumx1TNvKOc2GEjdpPRdBAXfcWEEZw6jmQHm96Q')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Fashion portrait city street" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvWxI4aNAav06eUggccWw3XzbPtjkl43e3i0RW_bGLNsyBukbt7Gj7MBCZKBgYtChhAmj_DmHZKDO4k0bF7x-PSj6HMQ2Kqvzl8Hd0Y_C5HP3wZGl0M5Vgd5orllCXk404SGRxLarURkkIjLCvYU_m8ni1wA2dj5qLqJIAf7qz12_CjiXz6RXSHyvO_eTGQXOqRQBCZZ1U90uopniCuiyfOnlU0QHS0CKW9TQpirAsF9-JvJII21SPw8O-WMKH7095qIZS43j7jYA')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Male model headshot outdoor" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClA29Fflo2FFBBHSW5QveFaKcEyjsKflHqvzsHQSLId6iR2SoQipnSq5G7cj0DqqNf2mWOBEzyG38CKOxzNRbmF6YGhcFks-P1eipDZ4oWF9MG-GZvWDsJm0OTa-9LZOy9A0yF50tYbnCP8fJy0R10zVib3h3GgJZXshO8ryJCsV3-zmKyctOU7TQ031HBskqMBygZ403amgTwcP7XZgGseM_umoy7jeRVNWafdxsCOrTc8Cau2646jpTwnAAuQ7AGfamalls0zNY')"></div>
+</div>
+<div class="flex flex-col flex-1 justify-center gap-1">
+<p class="text-[17px] font-semibold text-slate-100">Oct 22, 2023</p>
+<p class="text-[15px] text-text-secondary">Style: Casual</p>
+<div class="mt-2 flex items-center gap-1.5 status-badge w-fit px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px] font-bold">check</span>
+<span class="text-[12px] font-bold uppercase tracking-wider">Done</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-secondary/40 text-xl">chevron_right</span>
+</div>
+<!-- List Item 3 -->
+<div class="bg-card-dark rounded-xl p-3 flex gap-4 items-center">
+<div class="grid grid-cols-2 grid-rows-3 gap-0.5 w-[70px] h-[105px] rounded-lg overflow-hidden shrink-0">
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Artistic fashion photography woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC9AtGL8_NYxUuWU3qqTipwDfi9spbjRiRwuNoBuBPmel2CSRiBFP_gBOW-LYOgd3etu2jH-pltbku7W5go1QAltVUFzYEVFGp27kDLi7obzNMY4NieUNVPBWNfzKelDIzN55iFb8lLRbyg0LimQVFp6iWYQGjXL1ea3Rsv6DFPdNflSdCYuEygWn9COiqljR9ritxvBpC0RoAkiKeIhsOWZf7fOQuLBdMrMwho3ZwZOPNnPPm3XGYFaGQOJxvcvLr2qJdyN7Y1onQ')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Abstract portrait with colors" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAsiEATlCEjjPIE01gr0R8yFy9BsibQv1DXDy8C-lu0kEFLBJ-2CE5UiJV23njHyJKxf0kTA5pl_YuEIF8EHKvIyi9im4zAEvACH-grjacLH_ULx6ZTN4Ieuv6WgjfzzkOALTxNojOV1rBL3pi4PLGH7KdwhuCp3FHCMO9_DXVTKU5ffBTgU2u0IfUj-RVQP_pprnI8ZkakUAZ3xxkmZvXPG0dWGITpjWtPvcjA4ebYX8ntG3K9SuhpSJ5tC_VyLDQ2yUOhe7zQkS0')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Cinematic studio lighting portrait" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCsYjuAOLFHNQHOKUZ94llmczkgsBsTCNYXlp9N6UJGP3UarE81V_qSUmLP3F7y_9AYh62YPCGjCKZ3jkluX-6lUnEMoKowuedRci7zXYDik7z0ctLzzamvT6YUzL3jiPvBEHtn9q45ze_H1atN96SWSmAuqlI1Kkgxc_GejhJ2oaHUKhhvU_GK81c4ovG4YTwOE0sjdOr3Ddutv-vRlsZ8GFTlEJ4aS_FZRsMuTA1jgjZBS81dui7V4zQeJ7YmjH8VUXch5p3srtA')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Creative photography close up face" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFaxtaGOU7Bxg9uZxKGfmS1sqb_9LGMeAK83SBkgfEdWtHc_llyyuk1OwSq3WIhtHx0visEOeKG-8Y40nrsojDczemXGcfSVsDjrAk--jc4sXVuSGJDNM8dtVMe4FsEUuoqozZQ9cKg2J9RRG8HdgqNkvVzcI916a8MYH31oC87yp8471eWhnZvsIRd01cl2877zlWsCnicPdIP1ZaQXwVg6Qayh7ni8VrbrVu87mubSYsOUggNbwPVWO-eq1KshpnC3PmRNJH9ik')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Vogue style artistic man headshot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDs0eSUXian05sYNtZvk19Qp75Qv6zQO9l3iEjEPso64mKBfr5aWFaC4gdPI6C61QMDtYAMBcBklnzH7OpR-St05aYkJ2tOWKbwDUL3otwnrWF5ZjeeHFh1CzFpwcfI5x5RcfxS92E-jFjI_0IpQJO_wPKcUUmyjmxnqK5XfeTaklxH_oenZjph-4xXwTnXpkZ00EhjermsiCdTneRkVVzsg4lQXGCB-M-MT9z1PVjjT49Bo1lcY_lw_XC5ziOvR3ZGVaALmUtCZok')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Symmetric artistic portrait woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3lDtG5ws5J6mtBymak32JaHEDr-_OS4d7OvKm1EvI4-Muqr4VD7ze-q3Vgc8Acgz_Z8bqV2ZgpBx-rf66Uv-SDpm8n1NEuj_aW1EvDogNiD463croIMno-MsIW-tGK_ait0CUFv1SKBnzsgUwzg5biaQ8KP2xellaaYQSmlT2UqBYrkPgZGN_eQYYI2fCZ7XP1KFgQ_TQOHuNGKijNWNjIWuYc89DkRfnFdrpyNEVdS7AM5_nmPk2uicvNrzoM98aCWzXPsaAYQY')"></div>
+</div>
+<div class="flex flex-col flex-1 justify-center gap-1">
+<p class="text-[17px] font-semibold text-slate-100">Oct 20, 2023</p>
+<p class="text-[15px] text-text-secondary">Style: Artistic</p>
+<div class="mt-2 flex items-center gap-1.5 status-badge w-fit px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px] font-bold">check</span>
+<span class="text-[12px] font-bold uppercase tracking-wider">Done</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-secondary/40 text-xl">chevron_right</span>
+</div>
+<!-- List Item 4 -->
+<div class="bg-card-dark rounded-xl p-3 flex gap-4 items-center opacity-60">
+<div class="grid grid-cols-2 grid-rows-3 gap-0.5 w-[70px] h-[105px] rounded-lg overflow-hidden shrink-0">
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Beach lifestyle portrait woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAwpJ3YXiIBXHpDkcRJwXnXQsnoTFTLXX0CwGte0wdnPTtbJqhSA0zKPmvnlcH6WJgE9LgNZ4KZXQwL0u9Zg_TTHHpqWssEE0RJoRSkQ7JMriAY5H5J6XTwSHJSudgMwqCUK7gQ_2qF2AMI8SwdjsfiJgspxOFbLR-ZN1kGfk6vV8Ny-h1Srj5u0WtTi0uZ90lOxg5yXZP-cPsT-SsxLueGL_jPHxeL3g8qErUaBbpiswG5l0rvgBZVjSPIwlYmOIAmCT0IpsxLAOE')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Soft lighting female headshot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrpQTyyujgKz7zd2ccm2gcn6uz3vq2VtL39ea8cxVZKSRMvERsYnPejRCecpWF56VOMXSc3FuwWLa_SLhCq3NH28ldCq6ScvUmRu2ZdA-MVnLvjbxdlYYYpnwsPVh5dy5RztjPAdxcastq_32NFATgmZgcYxtRZcc9d2mJ8f3G0jtFqJhLtEEhF3-yhRKz9sM1nCkzlHmTEd8AkfpgFT_U7NwCIgmV4k3KdjjPCplYdlIOtf8W3Gw0jRb8bHAEkxHIVSMX1i8j-sQ')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Outdoor casual man photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAznPl4O-4ICNCU_H4-entxxf-y9c3ft6jNyYlbAR3vOWTlzPD9FvQ49vGxDYQT-DxMwrexzWNxywLZIfJ96d-T-ZSW4XxF0BFtUlvzkNiHAMSpUdYgbWbtwsQCmQR1PtyGmzmzOE6xGGAZg9PaVwICn3xp--PTiUYQCU51S4kNOtb2xUrsfEc1IavfUr-eaN7JIge-3khY-HWiICv6_PZ1Jw9koCqj-KWLuuqyAadpcq9eFjlHuOdMhBBMZ1nY0LurMHVcyCmWQCY')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Sunlit smiling man portrait" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBttR8-iXxG28nZHhdrIWtqGiBa1kGgluBnOJJHV0S49TXnP2U_t9lwQ9ehH9rOCjPEjvX5bW3dCxO6rE3IvutuRM9bkBKsbpzmJQttaI1sCrvkPPBybWoOkz-DlQw7PlPxkC2DyYi_9pTm_zbke9Cwb66wB3Upc-rguVDMVQ09to2bwhj4FRSPbaPK_zEaUD5J8nJEcSvORYmqmMFA7WCZB2m159CJtnmqpDET6gXDAW4MbODLgSlxym1EQSROeN8qtplhAEByog')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Summer outfit photoshoot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCXOZ9uRRSoyy2rIyEl94Swfjc05hmAcr6MgUw2ObGwtGpi4jjO8uhA5TacWwC-v3y4i4GWCxop-T2BAgx25dAkvwNhogwQLDZRV4hi76-LZuS7WEHXTl0yERNZ_UQRwzRnp8LdpHCxrsK0qQiTKbTGghV7eEpf4WlowQ3jHmiBz9xZW34WxWKTw3vhmqHDxApk9I9z-uDNprs3Ye5ZxdpQDEn6FCHtdcCYgbyvWIQuqk-HIIWL-c_OyKANDYT1-j1u03crV4EPCvk')"></div>
+<div class="bg-slate-800 bg-cover bg-center" data-alt="Natural look man headshot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_kG40GOAPgchNdt8OLBdT9bRibL7CfZ2Z8-tk0NFZV7_4UcGsUf-IZy-rccwyxDaDqW2kNrgEwooiC_fyiTsf-_sBP8fbNI48FcRxBua18jKDApr1FMSnaeaw5vcAE7l8YR_wnhXGGKETyJPdUHf34XdKV08Cn3urNm4QqxVdlhjV2ZzE98WyCUEzwIDwZ8y_BRDdjAjXeQ-E71o9elsHNdTLB92hFwWN278jVZOHnReOqLOfFkQ570nYX-QMLQq0fXu4WiYB_FQ')"></div>
+</div>
+<div class="flex flex-col flex-1 justify-center gap-1">
+<p class="text-[17px] font-semibold text-slate-100">Sep 15, 2023</p>
+<p class="text-[15px] text-text-secondary">Style: Summer</p>
+<div class="mt-2 flex items-center gap-1.5 status-badge w-fit px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px] font-bold">check</span>
+<span class="text-[12px] font-bold uppercase tracking-wider">Done</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-secondary/40 text-xl">chevron_right</span>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="absolute bottom-0 w-full bg-card-dark/80 backdrop-blur-xl border-t border-white/10 pb-8 pt-2">
+<div class="flex justify-around items-center px-4">
+<a class="flex flex-col items-center gap-1 text-text-secondary" href="#">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<p class="text-[10px] font-medium">Home</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-[26px] fill-[1]">history</span>
+<p class="text-[10px] font-medium">History</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-text-secondary" href="#">
+<span class="material-symbols-outlined text-[26px]">photo_library</span>
+<p class="text-[10px] font-medium">Gallery</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-text-secondary" href="#">
+<span class="material-symbols-outlined text-[26px]">person</span>
+<p class="text-[10px] font-medium">Profile</p>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

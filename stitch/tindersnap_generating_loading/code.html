@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF375F",
+                        "background-light": "#f8f5f6",
+                        "background-dark": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 2s linear infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto overflow-x-hidden pb-10">
+<div class="flex items-center p-6 justify-between">
+<div class="text-slate-400 dark:text-slate-500 flex size-10 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 cursor-pointer">
+<span class="material-symbols-outlined">close</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-base font-semibold leading-tight tracking-tight flex-1 text-center pr-10">TinderSnap AI</h2>
+</div>
+<div class="flex flex-col items-center px-6 pt-8 pb-4">
+<h1 class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight text-center">Creating your photos</h1>
+<p class="text-slate-500 dark:text-[#98989A] text-base font-normal leading-relaxed mt-2 text-center max-w-[280px]">Our AI is crafting 6 unique styles for you.</p>
+</div>
+<div class="flex flex-col items-center justify-center py-10">
+<div class="relative flex items-center justify-center">
+<svg class="size-48 transform -rotate-90">
+<circle class="text-slate-200 dark:text-white/10" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="331.75" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-bold text-slate-900 dark:text-white">40%</span>
+<span class="text-xs font-medium text-slate-500 dark:text-[#98989A] uppercase tracking-widest mt-1">Progress</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 px-6">
+<div class="flex items-center gap-4 bg-slate-50 dark:bg-white/5 p-4 rounded-xl border border-transparent dark:border-white/5">
+<div class="flex items-center justify-center rounded-full bg-green-500/20 text-green-500 shrink-0 size-8">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-slate-900 dark:text-white text-sm font-semibold">Uploading selfie</p>
+<p class="text-slate-500 dark:text-[#98989A] text-xs">Done</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-slate-50 dark:bg-white/5 p-4 rounded-xl border border-transparent dark:border-white/5">
+<div class="flex items-center justify-center rounded-full bg-green-500/20 text-green-500 shrink-0 size-8">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-slate-900 dark:text-white text-sm font-semibold">Analyzing facial features</p>
+<p class="text-slate-500 dark:text-[#98989A] text-xs">Done</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-slate-100 dark:bg-white/10 p-4 rounded-xl border border-primary/30">
+<div class="flex items-center justify-center shrink-0 size-8">
+<span class="material-symbols-outlined text-[24px] text-primary animate-spin">progress_activity</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-slate-900 dark:text-white text-sm font-semibold">Applying 'Natural' style</p>
+<p class="text-primary text-xs font-medium">In progress...</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-transparent p-4 rounded-xl opacity-50">
+<div class="flex items-center justify-center rounded-full bg-slate-200 dark:bg-white/10 text-slate-400 dark:text-slate-500 shrink-0 size-8">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-slate-900 dark:text-white text-sm font-semibold">Crafting 'Professional' look</p>
+<p class="text-slate-500 dark:text-[#98989A] text-xs">Pending</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-transparent p-4 rounded-xl opacity-50">
+<div class="flex items-center justify-center rounded-full bg-slate-200 dark:bg-white/10 text-slate-400 dark:text-slate-500 shrink-0 size-8">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-slate-900 dark:text-white text-sm font-semibold">Generating 'Outdoor' vibes</p>
+<p class="text-slate-500 dark:text-[#98989A] text-xs">Pending</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-transparent p-4 rounded-xl opacity-50">
+<div class="flex items-center justify-center rounded-full bg-slate-200 dark:bg-white/10 text-slate-400 dark:text-slate-500 shrink-0 size-8">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-slate-900 dark:text-white text-sm font-semibold">Finalizing your gallery</p>
+<p class="text-slate-500 dark:text-[#98989A] text-xs">Pending</p>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-10 px-6 pb-8 flex flex-col items-center">
+<button class="text-slate-500 dark:text-[#98989A] text-sm font-semibold py-3 px-8 hover:text-slate-900 dark:hover:text-white transition-colors">
+                Cancel Generation
+            </button>
+</div>
+</div>
+</body></html>
